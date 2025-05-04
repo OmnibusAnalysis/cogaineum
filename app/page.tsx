@@ -1,103 +1,158 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import type React from "react"
+
+import { useEffect, useState, useRef } from "react"
+import Navbar from "@/components/Navbar"
+import Hero from "@/components/Hero"
+import Intro from "@/components/Intro"
+import About from "@/components/About"
+import Contact from "@/components/Contact"
+import Donate from "@/components/Donate"
+import Footer from "@/components/Footer"
+
+export default function Portfolio() {
+  // Define the sequence of words to cycle through, ending with "Gain"
+  const sequence = ["Loss", "?", "?!?", "gain"]
+  const [currentWord, setCurrentWord] = useState("Loss")
+  const [isSpinning, setIsSpinning] = useState(false)
+  const [animationComplete, setAnimationComplete] = useState(false)
+  
+  // Scroll states for Hero
+  const [heroScrollOpacity, setHeroScrollOpacity] = useState(1)
+  const [heroBlurAmount, setHeroBlurAmount] = useState(0)
+  
+  // Scroll states for Intro
+  const [introScrollOpacity, setIntroScrollOpacity] = useState(0)
+  const [introBlurAmount, setIntroBlurAmount] = useState(15)
+  
+  // Scroll states for About
+  const [aboutScrollOpacity, setAboutScrollOpacity] = useState(0)
+  const [navbarOpacity, setNavbarOpacity] = useState(0)
+
+  const aboutSectionRef = useRef<HTMLDivElement>(null)
+  const contactSectionRef = useRef<HTMLDivElement>(null)
+  const donateSectionRef = useRef<HTMLDivElement>(null)
+
+  // Animation duration in milliseconds
+  const animationDuration = 6000
+
+  // Function to trigger the slot machine spin
+  const spinSlot = () => {
+    if (isSpinning) return
+
+    setIsSpinning(true)
+    setAnimationComplete(false)
+
+    // After animation completes, set to "Gain"
+    setTimeout(() => {
+      setCurrentWord("gain")
+      setIsSpinning(false)
+
+      // Trigger the color change animation after the slot machine stops
+      setTimeout(() => {
+        setAnimationComplete(true)
+      }, 100)
+    }, animationDuration)
+  }
+
+  useEffect(() => {
+    // Initial spin after component mounts
+    const initialTimeout = setTimeout(() => {
+      spinSlot()
+    }, 2000)
+
+    return () => clearTimeout(initialTimeout)
+  }, [])
+
+  // Handle scroll effects
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const viewportHeight = window.innerHeight
+
+      // Hero fade out (0% to 30% of viewport)
+      const heroFadeStart = 0
+      const heroFadeEnd = viewportHeight * 0.3
+      const heroOpacity = Math.max(0, Math.min(1, 1 - (scrollY - heroFadeStart) / (heroFadeEnd - heroFadeStart)))
+      setHeroScrollOpacity(heroOpacity)
+      setHeroBlurAmount((1 - heroOpacity) * 15)
+
+      // Intro fade in (20% to 50% of viewport)
+      const introFadeInStart = viewportHeight * 0.2
+      const introFadeInEnd = viewportHeight * 0.5
+      const introFadeInOpacity = Math.max(0, Math.min(1, (scrollY - introFadeInStart) / (introFadeInEnd - introFadeInStart)))
+      
+      // Intro fade out (50% to 80% of viewport)
+      const introFadeOutStart = viewportHeight * 0.5
+      const introFadeOutEnd = viewportHeight * 0.8
+      const introFadeOutOpacity = Math.max(0, Math.min(1, 1 - (scrollY - introFadeOutStart) / (introFadeOutEnd - introFadeOutStart)))
+      
+      const introOpacity = Math.min(introFadeInOpacity, introFadeOutOpacity)
+      setIntroScrollOpacity(introOpacity)
+      setIntroBlurAmount((1 - introOpacity) * 15)
+
+      // About fade in (70% to 100% of viewport)
+      const aboutFadeStart = viewportHeight * 0.7
+      const aboutFadeEnd = viewportHeight
+      const aboutOpacity = Math.max(0, Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart)))
+      setAboutScrollOpacity(aboutOpacity)
+
+      // Navbar opacity (inverse of hero opacity)
+      setNavbarOpacity(1 - heroOpacity)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Add scroll to section function
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="bg-black">
+      {/* Main container with consistent black background */}
+      <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
+        <Navbar
+          opacity={navbarOpacity}
+          scrollToSection={scrollToSection}
+          aboutRef={aboutSectionRef}
+          contactRef={contactSectionRef}
+          donateRef={donateSectionRef}
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <Hero
+          sequence={sequence}
+          currentWord={currentWord}
+          isSpinning={isSpinning}
+          animationComplete={animationComplete}
+          scrollOpacity={heroScrollOpacity}
+          blurAmount={heroBlurAmount}
+        />
+
+        <Intro
+          scrollOpacity={introScrollOpacity}
+          blurAmount={introBlurAmount}
+        />
+
+        {/* Content container that scrolls over the fixed background */}
+        <div className="relative z-20">
+          {/* Increased spacer to ensure title completely vanishes before About section appears */}
+          <div className="h-[170vh]"></div>
+
+          <About 
+            ref={aboutSectionRef} 
+            style={{ opacity: aboutScrollOpacity }}
+          />
+          <Contact ref={contactSectionRef} />
+          <Donate ref={donateSectionRef} />
+          <Footer />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }

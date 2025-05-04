@@ -1,0 +1,22 @@
+{
+  "name": "cogaineum",
+  "version": "0.1.0",
+  "components": {
+    "directory": "components",
+    "namespace": "@/components"
+  },
+  "styles": {
+    "directory": "styles",
+    "namespace": "@/styles"
+  },
+  "assets": {
+    "directory": "public",
+    "namespace": "/assets"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.507.0"
+  }
+} 
