@@ -24,41 +24,42 @@ const Hero: FC<HeroProps> = ({ sequence, currentWord, isSpinning, animationCompl
         }}
       >
         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter flex items-center justify-center">
-          {/* Co part with liquid gradient effect */}
-          <span className={`transition-colors duration-500 ${animationComplete ? "liquid-gradient-left" : ""}`}>
-            Co
-          </span>
+          <div className="relative flex items-center gap-0">
+            {/* Base text with Co and eum */}
+            <span className={`transition-colors duration-1000 ${animationComplete ? "liquid-gradient-left" : ""} mr-[-0.1em]`}>
+              Co
+            </span>
 
-          {/* Slot machine container */}
-          <div className="relative h-[1.2em] mx-1 overflow-hidden" style={{ minWidth: "3ch" }}>
-            {/* Current word (visible when not spinning) */}
-            {!isSpinning && (
-              <div
-                className={`absolute inset-0 flex items-center justify-center transition-colors duration-500 ${
-                  animationComplete ? "liquid-gradient-center" : ""
-                }`}
-              >
-                {currentWord}
-              </div>
-            )}
+            {/* Slot machine container */}
+            <div className="relative h-[1.2em] overflow-hidden" style={{ width: "3.2ch" }}>
+              {/* Current word (visible when not spinning) */}
+              {!isSpinning && (
+                <div
+                  className={`h-full flex items-center justify-center transition-colors duration-1000 ${
+                    animationComplete ? "liquid-gradient-center" : ""
+                  }`}
+                >
+                  {currentWord}
+                </div>
+              )}
 
-            {/* Slot machine reel (visible when spinning) */}
-            {isSpinning && (
-              <div className="single-spin-animation absolute inset-0">
-                {/* Just the sequence items in order */}
-                {sequence.map((word, index) => (
-                  <div key={index} className="h-[1.2em] flex items-center justify-center">
-                    {word}
-                  </div>
-                ))}
-              </div>
-            )}
+              {/* Slot machine reel (visible when spinning) */}
+              {isSpinning && (
+                <div className="single-spin-animation h-full">
+                  {/* Sequence of loss and gain repeated 3 times, ending with gain */}
+                  {["loss", "gain", "loss", "gain", "loss", "gain", "gain"].map((word, index) => (
+                    <div key={index} className="h-full flex items-center justify-center">
+                      {word}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <span className={`transition-colors duration-1000 ${animationComplete ? "liquid-gradient-right" : ""} ml-[-0.1em]`}>
+              eum
+            </span>
           </div>
-
-          {/* eum part with liquid gradient effect */}
-          <span className={`transition-colors duration-500 ${animationComplete ? "liquid-gradient-right" : ""}`}>
-            eum
-          </span>
         </h1>
       </div>
     </div>

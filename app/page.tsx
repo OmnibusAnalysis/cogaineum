@@ -13,8 +13,8 @@ import Footer from "@/components/Footer"
 
 export default function Portfolio() {
   // Define the sequence of words to cycle through, ending with "Gain"
-  const sequence = ["Loss", "?", "?!?", "gain"]
-  const [currentWord, setCurrentWord] = useState("Loss")
+  const sequence = ["loss", "gain", "loss", "gain", "loss", "gain", "gain"]
+  const [currentWord, setCurrentWord] = useState("loss")
   const [isSpinning, setIsSpinning] = useState(false)
   const [animationComplete, setAnimationComplete] = useState(false)
   
@@ -44,7 +44,7 @@ export default function Portfolio() {
     setIsSpinning(true)
     setAnimationComplete(false)
 
-    // After animation completes, set to "Gain"
+    // After animation completes, set to "gain"
     setTimeout(() => {
       setCurrentWord("gain")
       setIsSpinning(false)
@@ -98,8 +98,8 @@ export default function Portfolio() {
       const aboutOpacity = Math.max(0, Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart)))
       setAboutScrollOpacity(aboutOpacity)
 
-      // Navbar opacity (inverse of hero opacity)
-      setNavbarOpacity(1 - heroOpacity)
+      // Navbar opacity (tied to About section instead of inverse of hero)
+      setNavbarOpacity(aboutOpacity)
     }
 
     window.addEventListener("scroll", handleScroll)

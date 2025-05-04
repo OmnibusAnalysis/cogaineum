@@ -16,18 +16,17 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
 
         <div className="space-y-6 text-lg">
           <p>
-            Welcome to my portfolio. I am a digital artist exploring the boundaries between loss and gain, between what
-            we surrender and what we receive in return.
+            My name is Robert Maxwell Remlinger, the creator and human thought process behind Cogaineum.
+            I am a native of Springfield, Ohio and currently reside in Cincinnati, Ohio.
           </p>
 
           <p>
-            My work examines the duality of existence through digital media, interactive installations, and immersive
-            experiences that challenge conventional perspectives.
+            My work illustrates the absurdity and vibrancy of life itself. It thrives on face-to-face interaction, 
+            something that is increasingly rare in our society. 
           </p>
 
           <p>
-            Through my art, I invite viewers to question their understanding of value, transformation, and the cyclical
-            nature of creation and destruction.
+           I am anti-corporate and do not wish to work with them unless necesary. I am a firm believer in the power of the individual and the importance of personal expression.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">

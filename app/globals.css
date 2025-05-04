@@ -44,28 +44,15 @@ body {
 /* Single spin animation that stops directly on Gain */
 @keyframes singleSpin {
   0% {
-    transform: translateY(0); /* Start on "Loss" */
+    transform: translateY(0);
   }
-  /* Smooth acceleration */
-  20% {
-    transform: translateY(-30%);
-  }
-  /* Pass through "?" */
-  40% {
-    transform: translateY(-100%);
-  }
-  /* Pass through "?!?" */
-  60% {
-    transform: translateY(-200%);
-  }
-  /* Decelerate and stop exactly on "Gain" */
   100% {
-    transform: translateY(-300%); /* Stop on "Gain" */
+    transform: translateY(-500%);
   }
 }
 
 .single-spin-animation {
-  animation: singleSpin 6s cubic-bezier(0.33, 0.1, 0.5, 1) forwards;
+  animation: singleSpin 6s linear forwards;
   will-change: transform;
 }
 
@@ -76,7 +63,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-appear 0.8s ease-out forwards, liquid-wave-center 5s ease-in-out infinite alternate;
+  animation: liquid-appear 1.2s ease-out forwards, liquid-wave-center 8s ease-in-out infinite alternate;
   will-change: background-position;
 }
 
@@ -87,8 +74,8 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-flow-left 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-left 5s ease-in-out infinite
-    alternate 1.5s;
+  animation: liquid-flow-left 2s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-left 8s ease-in-out infinite
+    alternate 2s;
   will-change: background-position;
 }
 
@@ -99,8 +86,8 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-flow-right 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-right 5s ease-in-out infinite
-    alternate 1.5s;
+  animation: liquid-flow-right 2s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-right 8s ease-in-out infinite
+    alternate 2s;
   will-change: background-position;
 }
 
