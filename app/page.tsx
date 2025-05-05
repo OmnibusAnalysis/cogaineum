@@ -13,7 +13,7 @@ import Footer from "@/components/Footer"
 
 export default function Portfolio() {
   // Define the sequence of words to cycle through, ending with "Gain"
-  const sequence = ["loss", "gain", "loss", "gain", "loss", "gain", "gain"]
+  const sequence = ["loss", "gain", "loss", "gain", "gain"]
   const [currentWord, setCurrentWord] = useState("loss")
   const [isSpinning, setIsSpinning] = useState(false)
   const [animationComplete, setAnimationComplete] = useState(false)
@@ -36,6 +36,12 @@ export default function Portfolio() {
 
   // Animation duration in milliseconds
   const animationDuration = 6000
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Function to trigger the slot machine spin
   const spinSlot = () => {
@@ -71,34 +77,34 @@ export default function Portfolio() {
       const scrollY = window.scrollY
       const viewportHeight = window.innerHeight
 
-      // Hero fade out (0% to 30% of viewport)
+      // Hero fade out (0% to 100% of viewport)
       const heroFadeStart = 0
-      const heroFadeEnd = viewportHeight * 0.3
+      const heroFadeEnd = viewportHeight
       const heroOpacity = Math.max(0, Math.min(1, 1 - (scrollY - heroFadeStart) / (heroFadeEnd - heroFadeStart)))
       setHeroScrollOpacity(heroOpacity)
       setHeroBlurAmount((1 - heroOpacity) * 15)
 
-      // Intro fade in (20% to 50% of viewport)
-      const introFadeInStart = viewportHeight * 0.2
-      const introFadeInEnd = viewportHeight * 0.5
+      // Intro fade in (100% to 130% of viewport)
+      const introFadeInStart = viewportHeight
+      const introFadeInEnd = viewportHeight * 1.3
       const introFadeInOpacity = Math.max(0, Math.min(1, (scrollY - introFadeInStart) / (introFadeInEnd - introFadeInStart)))
       
-      // Intro fade out (50% to 80% of viewport)
-      const introFadeOutStart = viewportHeight * 0.5
-      const introFadeOutEnd = viewportHeight * 0.8
+      // Intro fade out (230% to 250% of viewport) - moved much later
+      const introFadeOutStart = viewportHeight * 2.3
+      const introFadeOutEnd = viewportHeight * 3.0
       const introFadeOutOpacity = Math.max(0, Math.min(1, 1 - (scrollY - introFadeOutStart) / (introFadeOutEnd - introFadeOutStart)))
       
       const introOpacity = Math.min(introFadeInOpacity, introFadeOutOpacity)
       setIntroScrollOpacity(introOpacity)
       setIntroBlurAmount((1 - introOpacity) * 15)
 
-      // About fade in (70% to 100% of viewport)
-      const aboutFadeStart = viewportHeight * 0.7
-      const aboutFadeEnd = viewportHeight
+      // About fade in (230% to 260% of viewport) - adjusted to match new Intro timing
+      const aboutFadeStart = viewportHeight * 2.3
+      const aboutFadeEnd = viewportHeight * 2.6
       const aboutOpacity = Math.max(0, Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart)))
       setAboutScrollOpacity(aboutOpacity)
 
-      // Navbar opacity (tied to About section instead of inverse of hero)
+      // Navbar opacity (tied to About section)
       setNavbarOpacity(aboutOpacity)
     }
 
@@ -141,12 +147,12 @@ export default function Portfolio() {
 
         {/* Content container that scrolls over the fixed background */}
         <div className="relative z-20">
-          {/* Increased spacer to ensure title completely vanishes before About section appears */}
-          <div className="h-[170vh]"></div>
+          {/* Increased spacer to ensure intro stays visible much longer */}
+          <div className="h-[400vh]"></div>
 
           <About 
             ref={aboutSectionRef} 
-            style={{ opacity: aboutScrollOpacity }}
+            style={{ opacity: mounted ? aboutScrollOpacity : 1 }}
           />
           <Contact ref={contactSectionRef} />
           <Donate ref={donateSectionRef} />

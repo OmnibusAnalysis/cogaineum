@@ -1,6 +1,7 @@
 "use client" 
 
 import { forwardRef } from "react"
+import Image from "next/image"
 
 interface AboutProps {
   style?: React.CSSProperties
@@ -8,7 +9,11 @@ interface AboutProps {
 
 const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
   return (
-    <div ref={ref} className="min-h-screen bg-black px-6 py-24 animate-fade-in" style={style}>
+    <div
+      ref={ref}
+      className="min-h-screen bg-black px-6 py-24 animate-fade-in"
+      style={style}
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
           About the Artist
@@ -30,11 +35,27 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">Artwork 1</span>
+            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center">
+              <Image 
+                src="/an-r-key.webp" 
+                alt="an-r-key" 
+                width={120} 
+                height={120} 
+                className="mb-4 rounded shadow-lg"
+                priority
+              />
+              <span className="text-2xl">An-R-Key</span>
             </div>
-            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">Artwork 2</span>
+            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center">
+              <Image 
+                src="/monopowerly.webp" 
+                alt="monopowerly" 
+                width={120} 
+                height={120} 
+                className="mb-4 rounded shadow-lg"
+                priority
+              />
+              <span className="text-2xl">Monopowerly</span>
             </div>
           </div>
         </div>

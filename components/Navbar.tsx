@@ -17,7 +17,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
     <nav className="fixed top-0 left-0 right-0 z-30 px-6 py-4 transition-opacity duration-500" style={{ opacity }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <div className="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-          CoGaineum
+          Cogaineum
         </div>
         <ul className="flex space-x-8">
           <li>
