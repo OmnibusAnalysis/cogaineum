@@ -23,13 +23,13 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
         <div className="space-y-6 text-lg">
           <p className="text-gray-300 italic">
             The Colosseum, a grand architectural feat of the Roman Empire, 
-            was emblematic of the "bread and circuses" strategy—an elaborate spectacle 
+            was emblematic of the &ldquo;bread and circuses&rdquo; strategy—an elaborate spectacle 
             designed to pacify and distract the masses through displays of violence and death. 
             It served as a political tool, offering brutal entertainment to maintain control over an oppressed population.
           </p>
           <p className="text-gray-300 italic">  
-             In contrast, "Cogainium" represents a radically different philosophy: the use of entertainment 
-             not as a means of manipulation, but as a form of universal expressio n and benefit.
+             In contrast, &ldquo;Cogainium&rdquo; represents a radically different philosophy: the use of entertainment 
+             not as a means of manipulation, but as a form of universal expression and benefit.
           </p>
           <p className="text-gray-300 italic">
              The Colosseum glorified the end of life for public amusement.

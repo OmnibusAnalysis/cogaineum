@@ -3,7 +3,6 @@
 import type { FC } from "react"
 
 interface HeroProps {
-  sequence: string[]
   currentWord: string
   isSpinning: boolean
   animationComplete: boolean
@@ -11,7 +10,7 @@ interface HeroProps {
   blurAmount: number
 }
 
-const Hero: FC<HeroProps> = ({ sequence, currentWord, isSpinning, animationComplete, scrollOpacity, blurAmount }) => {
+const Hero: FC<HeroProps> = ({ currentWord, isSpinning, animationComplete, scrollOpacity, blurAmount }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-10">
       <div

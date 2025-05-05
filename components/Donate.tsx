@@ -22,7 +22,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
     <div ref={ref} className="min-h-screen bg-black px-6 py-24 animate-fade-in-delayed">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-          Support My Work
+          Help me make art. 
         </h2>
 
         <div className="mt-12">
@@ -30,8 +30,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
             {/* Left column - Text content */}
             <div className="space-y-6">
               <p className="text-lg">
-                Your support enables me to continue exploring the boundaries between loss and gain through my art. Every
-                contribution helps fund new projects and installations.
+                I have more ideas than I have the money for. I buy all supplies from local establishments.
               </p>
 
               <div className="p-6 border-2 border-gray-800 rounded-lg bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm">
@@ -50,7 +49,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                 </div>
 
                 <p className="text-gray-400 text-sm">
-                  Please include a message with your donation so I can thank you properly!
+                  Are you a corporation? Want me to leave you alone? Contact me about writing me a check. 
                 </p>
               </div>
 
@@ -104,7 +103,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
               <div className="p-5 border border-gray-800 rounded-lg bg-black/50">
                 <h4 className="text-lg font-medium mb-2 text-pink-300">Enable Exhibitions</h4>
                 <p className="text-gray-400">
-                  Help bring my work to galleries and public spaces for wider audiences to experience.
+                  Help bring my work to public spaces for wider audiences to experience.
                 </p>
               </div>
 

@@ -11,6 +11,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
   return (
     <div
       ref={ref}
+      data-testid="about-container"
       className="min-h-screen bg-black px-6 py-24 animate-fade-in"
       style={style}
     >
@@ -31,7 +32,8 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
           </p>
 
           <p>
-           I am anti-corporate and do not wish to work with them unless necesary. I am a firm believer in the power of the individual and the importance of personal expression.
+           I am anti-corporate and do not wish to work with them unless necesary. 
+           I am a firm believer in the power of the individual and the importance of personal expression.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -39,8 +41,8 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
               <Image 
                 src="/an-r-key.webp" 
                 alt="an-r-key" 
-                width={120} 
-                height={120} 
+                width={150} 
+                height={150} 
                 className="mb-4 rounded shadow-lg"
                 priority
               />
@@ -50,8 +52,8 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
               <Image 
                 src="/monopowerly.webp" 
                 alt="monopowerly" 
-                width={120} 
-                height={120} 
+                width={200} 
+                height={200} 
                 className="mb-4 rounded shadow-lg"
                 priority
               />

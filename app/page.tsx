@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import Intro from "@/components/Intro"
@@ -12,8 +12,6 @@ import Donate from "@/components/Donate"
 import Footer from "@/components/Footer"
 
 export default function Portfolio() {
-  // Define the sequence of words to cycle through, ending with "Gain"
-  const sequence = ["loss", "gain", "loss", "gain", "gain"]
   const [currentWord, setCurrentWord] = useState("loss")
   const [isSpinning, setIsSpinning] = useState(false)
   const [animationComplete, setAnimationComplete] = useState(false)
@@ -37,16 +35,18 @@ export default function Portfolio() {
   // Animation duration in milliseconds
   const animationDuration = 6000
 
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
+  const hasSpun = useRef(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   // Function to trigger the slot machine spin
-  const spinSlot = () => {
-    if (isSpinning) return
+  const spinSlot = useCallback(() => {
+    if (isSpinning || hasSpun.current) return
 
+    hasSpun.current = true
     setIsSpinning(true)
     setAnimationComplete(false)
 
@@ -60,7 +60,7 @@ export default function Portfolio() {
         setAnimationComplete(true)
       }, 100)
     }, animationDuration)
-  }
+  }, [isSpinning, animationDuration])
 
   useEffect(() => {
     // Initial spin after component mounts
@@ -69,7 +69,7 @@ export default function Portfolio() {
     }, 2000)
 
     return () => clearTimeout(initialTimeout)
-  }, [])
+  }, [spinSlot])
 
   // Handle scroll effects
   useEffect(() => {
@@ -119,10 +119,47 @@ export default function Portfolio() {
     }
   }
 
+  // Add keyboard navigation support
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Tab") {
+      // Add focus styles when using keyboard navigation
+      document.body.classList.add("keyboard-navigation")
+    }
+  }, [])
+
+  // Add keyboard navigation support
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown)
+    return () => document.removeEventListener("keydown", handleKeyDown)
+  }, [handleKeyDown])
+
+  // Add skip to main content link
+  const skipToMainContent = () => {
+    const mainContent = document.querySelector("main")
+    if (mainContent) {
+      mainContent.setAttribute("tabindex", "-1")
+      mainContent.focus()
+    }
+  }
+
   return (
     <div className="bg-black">
+      {/* Skip to main content link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:z-50"
+        onClick={skipToMainContent}
+      >
+        Skip to main content
+      </a>
+
       {/* Main container with consistent black background */}
-      <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
+      <main 
+        id="main-content"
+        className="relative min-h-screen bg-black text-white overflow-x-hidden"
+        role="main"
+        aria-label="Main content"
+      >
         <Navbar
           opacity={navbarOpacity}
           scrollToSection={scrollToSection}
@@ -132,7 +169,6 @@ export default function Portfolio() {
         />
 
         <Hero
-          sequence={sequence}
           currentWord={currentWord}
           isSpinning={isSpinning}
           animationComplete={animationComplete}
@@ -146,9 +182,16 @@ export default function Portfolio() {
         />
 
         {/* Content container that scrolls over the fixed background */}
-        <div className="relative z-20">
+        <div 
+          className="relative z-20"
+          role="region"
+          aria-label="Content sections"
+        >
           {/* Increased spacer to ensure intro stays visible much longer */}
-          <div className="h-[400vh]"></div>
+          <div 
+            className="h-[400vh]"
+            aria-hidden="true"
+          ></div>
 
           <About 
             ref={aboutSectionRef} 
