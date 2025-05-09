@@ -132,9 +132,8 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                   rel="noopener noreferrer"
                   className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline"
                 >
-                  Christmas advertising campaign
-                </a>
-                for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
+                  Christmas advertising campaign 
+                </a> for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
                 this campaign, Hasbro is showcasing bad behavior as acceptable using the tagline,
                 &quot;All is fair...&quot;. Following their lead, and made my own version using the
                 facilities at the Cincinnati Public Library.
