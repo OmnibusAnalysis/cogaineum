@@ -1,10 +1,64 @@
 "use client" 
 
-import { forwardRef } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import Image from "next/image"
 
 interface AboutProps {
   style?: React.CSSProperties
+}
+
+// Custom hook to handle dark reader compatibility
+const useDarkReaderCompatibility = () => {
+  const [isDarkReaderActive, setIsDarkReaderActive] = useState(false)
+
+  useEffect(() => {
+    // Check if dark reader is active
+    const hasDarkReader = document.documentElement.hasAttribute('data-darkreader-inline-bgcolor') ||
+                         document.documentElement.hasAttribute('data-darkreader-inline-color')
+    setIsDarkReaderActive(hasDarkReader)
+  }, [])
+
+  return isDarkReaderActive
+}
+
+// Wrapper component to handle dark reader compatibility
+const DarkReaderCompatibleImage = ({ src, alt, width, height, className, priority }: {
+  src: string
+  alt: string
+  width: number
+  height: number
+  className?: string
+  priority?: boolean
+}) => {
+  const isDarkReaderActive = useDarkReaderCompatibility()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Only render the image after mounting to avoid hydration mismatch
+  if (!mounted) {
+    return <div className={className} style={{ width, height }} />
+  }
+
+  return (
+    <div className={className}>
+      <Image 
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        style={{
+          color: 'transparent',
+          ...(isDarkReaderActive && {
+            '--darkreader-inline-color': 'transparent'
+          })
+        }}
+      />
+    </div>
+  )
 }
 
 const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
@@ -38,7 +92,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center">
-              <Image 
+              <DarkReaderCompatibleImage 
                 src="/an-r-key.webp" 
                 alt="an-r-key" 
                 width={150} 
@@ -49,7 +103,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
               <span className="text-2xl">An-R-Key</span>
             </div>
             <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center">
-              <Image 
+              <DarkReaderCompatibleImage 
                 src="/monopowerly.webp" 
                 alt="monopowerly" 
                 width={200} 

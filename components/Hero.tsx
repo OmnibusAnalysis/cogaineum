@@ -45,8 +45,8 @@ const Hero: FC<HeroProps> = ({ currentWord, isSpinning, animationComplete, scrol
               {/* Slot machine reel (visible when spinning) */}
               {isSpinning && (
                 <div className="single-spin-animation h-full">
-                  {/* Sequence of loss and gain repeated 3 times, ending with gain */}
-                  {["loss", "gain", "loss", "gain", "loss", "gain", "gain"].map((word, index) => (
+                  {/* Sequence of loss and gain repeated only once */}
+                  {["loss", "gain"].map((word, index) => (
                     <div key={index} className="h-full flex items-center justify-center">
                       {word}
                     </div>

@@ -47,12 +47,12 @@ body {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-500%);
+    transform: translateY(-100%);
   }
 }
 
 .single-spin-animation {
-  animation: singleSpin 6s linear forwards;
+  animation: singleSpin 1s linear forwards;
   will-change: transform;
 }
 

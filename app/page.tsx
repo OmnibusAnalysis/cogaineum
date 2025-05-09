@@ -33,7 +33,7 @@ export default function Portfolio() {
   const donateSectionRef = useRef<HTMLDivElement>(null)
 
   // Animation duration in milliseconds
-  const animationDuration = 6000
+  const animationDuration = 2500
 
   const [mounted, setMounted] = useState(false)
   const hasSpun = useRef(false)
@@ -50,16 +50,12 @@ export default function Portfolio() {
     setIsSpinning(true)
     setAnimationComplete(false)
 
-    // After animation completes, set to "gain"
+    // Set to "gain" and start gradient animation when the word aligns
     setTimeout(() => {
       setCurrentWord("gain")
       setIsSpinning(false)
-
-      // Trigger the color change animation after the slot machine stops
-      setTimeout(() => {
-        setAnimationComplete(true)
-      }, 100)
-    }, animationDuration)
+      setAnimationComplete(true)
+    }, animationDuration * 0.5) // Start at halfway point when gain aligns
   }, [isSpinning, animationDuration])
 
   useEffect(() => {
