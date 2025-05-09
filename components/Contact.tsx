@@ -242,25 +242,6 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
             )}
           </form>
         </div>
-
-        {/* Contact information */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 border-2 border-gray-800 rounded-lg bg-black/50 backdrop-blur-sm">
-            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Location
-            </h3>
-            <p className="text-gray-300">New York City, NY</p>
-            <p className="text-gray-300">United States</p>
-          </div>
-
-          <div className="p-6 border-2 border-gray-800 rounded-lg bg-black/50 backdrop-blur-sm">
-            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Email & Phone
-            </h3>
-            <p className="text-gray-300">hello@cogaineum.art</p>
-            <p className="text-gray-300">+1 (555) 123-4567</p>
-          </div>
-        </div>
       </div>
     </div>
   );
