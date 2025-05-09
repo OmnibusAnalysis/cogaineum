@@ -116,9 +116,9 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
               />
               <span className="text-2xl">Monopowerly</span>
               <p className="text-sm text-center px-4 mt-2 text-gray-300 max-w-md">
-                Monopowerly emerged as my Christmas 2023 gift in relation to Hasbro's <a href="https://www.socialsamosa.com/campaign-spot/monopoly-new-ad-says-all-is-fair-in-fun-games-1386620" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline">Christmas advertising campaign</a> 
-                for their (stolen) intellectual property game branded as "Monopoly". In this campaign,
-                Hasbro is showcasing bad behavior as acceptable using the tagline, "All is fair...". Following their lead,
+                Monopowerly emerged as my Christmas 2023 gift in relation to Hasbro&apos;s <a href="https://www.socialsamosa.com/campaign-spot/monopoly-new-ad-says-all-is-fair-in-fun-games-1386620" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline">Christmas advertising campaign</a> 
+                for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In this campaign,
+                Hasbro is showcasing bad behavior as acceptable using the tagline, &quot;All is fair...&quot;. Following their lead,
                 and made my own version using the facilities at the Cincinnati Public Library. 
               </p>
             </div>
