@@ -91,27 +91,36 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center">
+            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center pt-16 pb-12">
               <DarkReaderCompatibleImage 
                 src="/an-r-key.webp" 
                 alt="an-r-key" 
-                width={150} 
-                height={150} 
+                width={300} 
+                height={300} 
                 className="mb-4 rounded shadow-lg"
                 priority
               />
               <span className="text-2xl">An-R-Key</span>
+              <p className="text-sm text-center px-12 mt-4 text-gray-300">
+                Anarchy is uncut, raw, a blank slate which unlocks your inner workings. When one door closes, use an R-Key to open the next.
+              </p>
             </div>
-            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center">
+            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-12 pb-12">
               <DarkReaderCompatibleImage 
                 src="/monopowerly.webp" 
                 alt="monopowerly" 
-                width={200} 
-                height={200} 
+                width={300} 
+                height={300} 
                 className="mb-4 rounded shadow-lg"
                 priority
               />
               <span className="text-2xl">Monopowerly</span>
+              <p className="text-sm text-center px-4 mt-2 text-gray-300 max-w-md">
+                Monopowerly emerged as my Christmas 2023 gift in relation to Hasbro's <a href="https://www.socialsamosa.com/campaign-spot/monopoly-new-ad-says-all-is-fair-in-fun-games-1386620" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline">Christmas advertising campaign</a> 
+                for their (stolen) intellectual property game branded as "Monopoly". In this campaign,
+                Hasbro is showcasing bad behavior as acceptable using the tagline, "All is fair...". Following their lead,
+                and made my own version using the facilities at the Cincinnati Public Library. 
+              </p>
             </div>
           </div>
         </div>
