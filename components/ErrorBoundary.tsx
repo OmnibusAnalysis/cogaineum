@@ -1,31 +1,31 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { Component, type ErrorInfo, type ReactNode } from "react"
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 
 interface Props {
-  children: ReactNode
-  fallback?: ReactNode
+  children: ReactNode;
+  fallback?: ReactNode;
 }
 
 interface State {
-  hasError: boolean
-  error: Error | null
+  hasError: boolean;
+  error: Error | null;
 }
 
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
     error: null,
-  }
+  };
 
   public static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error }
+    return { hasError: true, error };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("Uncaught error:", error, errorInfo)
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   public render() {
@@ -38,7 +38,8 @@ class ErrorBoundary extends Component<Props, State> {
                 Something went wrong
               </h2>
               <p className="text-gray-300 mb-6">
-                We apologize for the inconvenience. Please try refreshing the page or contact support if the problem persists.
+                We apologize for the inconvenience. Please try refreshing the page or contact
+                support if the problem persists.
               </p>
               <div className="space-y-4">
                 <button
@@ -54,7 +55,7 @@ class ErrorBoundary extends Component<Props, State> {
                   Contact Support
                 </a>
               </div>
-              {process.env.NODE_ENV === "development" && (
+              {process.env.NODE_ENV === 'development' && (
                 <div className="mt-6 p-4 bg-gray-800 rounded-lg">
                   <h3 className="text-sm font-medium text-gray-400 mb-2">Error Details:</h3>
                   <pre className="text-xs text-gray-300 overflow-auto">
@@ -65,11 +66,11 @@ class ErrorBoundary extends Component<Props, State> {
             </div>
           </div>
         )
-      )
+      );
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }
 
-export default ErrorBoundary 
+export default ErrorBoundary;

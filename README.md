@@ -46,12 +46,14 @@ cogaineum/
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/cogaineum.git
 cd cogaineum
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -59,6 +61,7 @@ yarn install
 ```
 
 3. Create a `.env.local` file in the root directory with the following variables:
+
 ```env
 EMAIL_SERVER_HOST=your_smtp_host
 EMAIL_SERVER_PORT=your_smtp_port
@@ -68,6 +71,7 @@ EMAIL_FROM=your_from_email
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 # or

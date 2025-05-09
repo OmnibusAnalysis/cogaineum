@@ -1,108 +1,108 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { forwardRef, useState, useRef } from "react"
-import { sendEmail, type EmailResponse } from "@/app/actions/email"
+import { forwardRef, useState, useRef } from 'react';
+import { sendEmail, type EmailResponse } from '@/app/actions/email';
 
 const Contact = forwardRef<HTMLDivElement>((props, ref) => {
   // Contact form state
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formStatus, setFormStatus] = useState<null | EmailResponse>(null)
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
-  const formRef = useRef<HTMLFormElement>(null)
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<null | EmailResponse>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   // Validate individual fields
   const validateField = (field: string, value: string) => {
-    const errors: Record<string, string> = {}
-    
-    if (field === "name" && !value.trim()) {
-      errors.name = "Name is required"
+    const errors: Record<string, string> = {};
+
+    if (field === 'name' && !value.trim()) {
+      errors.name = 'Name is required';
     }
-    
-    if (field === "email") {
+
+    if (field === 'email') {
       if (!value.trim()) {
-        errors.email = "Email is required"
+        errors.email = 'Email is required';
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        errors.email = "Please enter a valid email address"
+        errors.email = 'Please enter a valid email address';
       }
     }
-    
-    if (field === "message" && value.trim().length < 10) {
-      errors.message = "Message must be at least 10 characters"
+
+    if (field === 'message' && value.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters';
     }
-    
-    setFieldErrors(prev => ({ ...prev, ...errors }))
-    return Object.keys(errors).length === 0
-  }
+
+    setFieldErrors(prev => ({ ...prev, ...errors }));
+    return Object.keys(errors).length === 0;
+  };
 
   // Handle field changes with validation
   const handleFieldChange = (field: string, value: string) => {
     switch (field) {
-      case "name":
-        setName(value)
-        break
-      case "email":
-        setEmail(value)
-        break
-      case "message":
-        setMessage(value)
-        break
+      case 'name':
+        setName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'message':
+        setMessage(value);
+        break;
     }
-    validateField(field, value)
-  }
+    validateField(field, value);
+  };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setFieldErrors({})
+    e.preventDefault();
+    setFieldErrors({});
 
     // Validate all fields
-    const nameValid = validateField("name", name)
-    const emailValid = validateField("email", email)
-    const messageValid = validateField("message", message)
+    const nameValid = validateField('name', name);
+    const emailValid = validateField('email', email);
+    const messageValid = validateField('message', message);
 
     if (!nameValid || !emailValid || !messageValid) {
       setFormStatus({
         success: false,
-        message: "Please fix the errors in the form before submitting.",
-      })
-      return
+        message: 'Please fix the errors in the form before submitting.',
+      });
+      return;
     }
 
     try {
-      setIsSubmitting(true)
-      setFormStatus(null)
+      setIsSubmitting(true);
+      setFormStatus(null);
 
-      const form = e.currentTarget
-      const formData = new FormData(form)
-      const response = await sendEmail(formData)
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const response = await sendEmail(formData);
 
-      setFormStatus(response)
+      setFormStatus(response);
 
       if (response.success) {
-        setName("")
-        setEmail("")
-        setMessage("")
-        setFieldErrors({})
-        
+        setName('');
+        setEmail('');
+        setMessage('');
+        setFieldErrors({});
+
         setTimeout(() => {
-          setFormStatus(null)
-        }, 5000)
+          setFormStatus(null);
+        }, 5000);
       }
     } catch (error) {
-      console.error("Error submitting form:", error)
+      console.error('Error submitting form:', error);
       setFormStatus({
         success: false,
-        message: "An unexpected error occurred. Please try again later.",
-      })
+        message: 'An unexpected error occurred. Please try again later.',
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div ref={ref} className="min-h-screen bg-black px-6 py-24 animate-fade-in-delayed">
@@ -124,9 +124,9 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
                   id="name"
                   name="name"
                   value={name}
-                  onChange={(e) => handleFieldChange("name", e.target.value)}
+                  onChange={e => handleFieldChange('name', e.target.value)}
                   className={`w-full px-4 py-3 bg-black border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 ${
-                    fieldErrors.name ? "border-red-500" : "border-gray-800"
+                    fieldErrors.name ? 'border-red-500' : 'border-gray-800'
                   }`}
                   placeholder="Your name"
                   required
@@ -147,9 +147,9 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
                   id="email"
                   name="email"
                   value={email}
-                  onChange={(e) => handleFieldChange("email", e.target.value)}
+                  onChange={e => handleFieldChange('email', e.target.value)}
                   className={`w-full px-4 py-3 bg-black border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 ${
-                    fieldErrors.email ? "border-red-500" : "border-gray-800"
+                    fieldErrors.email ? 'border-red-500' : 'border-gray-800'
                   }`}
                   placeholder="your.email@example.com"
                   required
@@ -169,10 +169,10 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
                   id="message"
                   name="message"
                   value={message}
-                  onChange={(e) => handleFieldChange("message", e.target.value)}
+                  onChange={e => handleFieldChange('message', e.target.value)}
                   rows={6}
                   className={`w-full px-4 py-3 bg-black border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none ${
-                    fieldErrors.message ? "border-red-500" : "border-gray-800"
+                    fieldErrors.message ? 'border-red-500' : 'border-gray-800'
                   }`}
                   placeholder="Your message..."
                   required
@@ -221,7 +221,7 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
                     Sending...
                   </span>
                 ) : (
-                  "Send Message"
+                  'Send Message'
                 )}
               </button>
             </div>
@@ -231,11 +231,13 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
               <div
                 className={`p-4 bg-gradient-to-r ${
                   formStatus.success
-                    ? "from-purple-900/30 to-pink-900/30 border border-green-500"
-                    : "from-red-900/30 to-pink-900/30 border border-red-500"
+                    ? 'from-purple-900/30 to-pink-900/30 border border-green-500'
+                    : 'from-red-900/30 to-pink-900/30 border border-red-500'
                 } rounded-lg`}
               >
-                <p className={formStatus.success ? "text-green-400" : "text-red-400"}>{formStatus.message}</p>
+                <p className={formStatus.success ? 'text-green-400' : 'text-red-400'}>
+                  {formStatus.message}
+                </p>
               </div>
             )}
           </form>
@@ -261,9 +263,9 @@ const Contact = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
 
-Contact.displayName = "Contact"
+Contact.displayName = 'Contact';
 
-export default Contact
+export default Contact;

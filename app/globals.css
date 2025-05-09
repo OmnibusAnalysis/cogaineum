@@ -58,12 +58,21 @@ body {
 
 /* Liquid gradient effect for center word */
 .liquid-gradient-center {
-  background: linear-gradient(90deg, transparent 0%, #8b5cf6 30%, #ec4899 50%, #8b5cf6 70%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #8b5cf6 30%,
+    #ec4899 50%,
+    #8b5cf6 70%,
+    transparent 100%
+  );
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-appear 1.2s ease-out forwards, liquid-wave-center 8s ease-in-out infinite alternate;
+  animation:
+    liquid-appear 1.2s ease-out forwards,
+    liquid-wave-center 8s ease-in-out infinite alternate;
   will-change: background-position;
 }
 
@@ -74,8 +83,9 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-flow-left 2s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-left 8s ease-in-out infinite
-    alternate 2s;
+  animation:
+    liquid-flow-left 2s cubic-bezier(0.19, 1, 0.22, 1) forwards,
+    liquid-wave-left 8s ease-in-out infinite alternate 2s;
   will-change: background-position;
 }
 
@@ -86,8 +96,9 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: liquid-flow-right 2s cubic-bezier(0.19, 1, 0.22, 1) forwards, liquid-wave-right 8s ease-in-out infinite
-    alternate 2s;
+  animation:
+    liquid-flow-right 2s cubic-bezier(0.19, 1, 0.22, 1) forwards,
+    liquid-wave-right 8s ease-in-out infinite alternate 2s;
   will-change: background-position;
 }
 
@@ -231,7 +242,7 @@ nav button {
 }
 
 nav button::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;

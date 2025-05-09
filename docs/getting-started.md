@@ -13,12 +13,14 @@ Before you begin, ensure you have the following installed:
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/cogaineum.git
 cd cogaineum
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -47,6 +49,7 @@ NEXT_PUBLIC_SITE_URL=https://cogaineum.art
 ## Development
 
 1. Start the development server:
+
 ```bash
 npm run dev
 # or
@@ -92,17 +95,20 @@ cogaineum/
 ## Development Workflow
 
 1. Create a new branch for your feature:
+
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
 2. Make your changes and commit them:
+
 ```bash
 git add .
 git commit -m "Add your feature"
 ```
 
 3. Push your changes:
+
 ```bash
 git push origin feature/your-feature-name
 ```
@@ -120,6 +126,7 @@ git push origin feature/your-feature-name
 ## Testing
 
 Run the test suite:
+
 ```bash
 npm test
 ```
@@ -135,11 +142,13 @@ For deployment instructions, see the [Deployment Guide](./deployment.md).
 ### Common Issues
 
 1. **Dependencies not installing**
+
    - Clear npm cache: `npm cache clean --force`
    - Delete node_modules: `rm -rf node_modules`
    - Reinstall: `npm install`
 
 2. **TypeScript errors**
+
    - Run type check: `npm run type-check`
    - Check for missing types: `npm install @types/package-name`
 
@@ -157,4 +166,4 @@ For deployment instructions, see the [Deployment Guide](./deployment.md).
 
 - Read the [Project Structure](./project-structure.md) guide
 - Learn about [Development](./development.md) practices
-- Understand the [Testing](./testing.md) process 
+- Understand the [Testing](./testing.md) process

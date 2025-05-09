@@ -1,28 +1,28 @@
-"use client"
+'use client';
 
-import { forwardRef, useState } from "react"
+import { forwardRef, useState } from 'react';
 
 const Donate = forwardRef<HTMLDivElement>((props, ref) => {
-  const [copySuccess, setCopySuccess] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false);
 
   // Copy Venmo ID to clipboard
   const copyVenmoId = () => {
     navigator.clipboard
-      .writeText("@CoGaineum-Art")
+      .writeText('@CoGaineum-Art')
       .then(() => {
-        setCopySuccess(true)
-        setTimeout(() => setCopySuccess(false), 2000)
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2000);
       })
-      .catch((err) => {
-        console.error("Failed to copy: ", err)
-      })
-  }
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+  };
 
   return (
     <div ref={ref} className="min-h-screen bg-black px-6 py-24 animate-fade-in-delayed">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-          Help me make art. 
+          Help me make art.
         </h2>
 
         <div className="mt-12">
@@ -30,7 +30,8 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
             {/* Left column - Text content */}
             <div className="space-y-6">
               <p className="text-lg">
-                I have more ideas than I have the money for. I buy all supplies from local establishments.
+                I have more ideas than I have the money for. I buy all supplies from local
+                establishments.
               </p>
 
               <div className="p-6 border-2 border-gray-800 rounded-lg bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm">
@@ -44,12 +45,13 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                     onClick={copyVenmoId}
                     className="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-sm transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   >
-                    {copySuccess ? "Copied!" : "Copy"}
+                    {copySuccess ? 'Copied!' : 'Copy'}
                   </button>
                 </div>
 
                 <p className="text-gray-400 text-sm">
-                  Are you a corporation? Want me to leave you alone? Contact me about writing me a check. 
+                  Are you a corporation? Want me to leave you alone? Contact me about writing me a
+                  check.
                 </p>
               </div>
 
@@ -67,7 +69,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                   onClick={copyVenmoId}
                   className="px-6 py-3 border-2 border-purple-600 hover:border-purple-500 rounded-lg text-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
-                  {copySuccess ? "Venmo ID Copied!" : "Copy Venmo ID"}
+                  {copySuccess ? 'Venmo ID Copied!' : 'Copy Venmo ID'}
                 </button>
               </div>
             </div>
@@ -96,7 +98,8 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
               <div className="p-5 border border-gray-800 rounded-lg bg-black/50">
                 <h4 className="text-lg font-medium mb-2 text-purple-300">Fund New Projects</h4>
                 <p className="text-gray-400">
-                  Your donations directly support the creation of new artistic works and installations.
+                  Your donations directly support the creation of new artistic works and
+                  installations.
                 </p>
               </div>
 
@@ -118,9 +121,9 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
 
-Donate.displayName = "Donate"
+Donate.displayName = 'Donate';
 
-export default Donate
+export default Donate;

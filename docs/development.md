@@ -42,6 +42,7 @@ Create a `.vscode/settings.json` file with:
 ### Branch Strategy
 
 1. Create a new branch for each feature/fix:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -66,6 +67,7 @@ Follow the Conventional Commits specification:
 ```
 
 Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -75,6 +77,7 @@ Types:
 - `chore`: Maintenance tasks
 
 Example:
+
 ```
 feat(contact): add form validation
 fix(auth): resolve login redirect issue
@@ -168,11 +171,13 @@ npm test -- --coverage
 ### Common Issues
 
 1. **TypeScript Errors**
+
    - Check type definitions
    - Verify prop types
    - Update type declarations
 
 2. **Build Errors**
+
    - Check dependencies
    - Verify environment variables
    - Clean build cache
@@ -282,4 +287,4 @@ npm test -- --coverage
 
 - Read the [Testing Guide](./testing.md)
 - Review [Deployment Guide](./deployment.md)
-- Check [Security Guide](./security.md) 
+- Check [Security Guide](./security.md)

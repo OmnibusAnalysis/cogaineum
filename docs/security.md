@@ -54,7 +54,9 @@ module.exports = {
               frame-src 'self';
               base-uri 'self';
               form-action 'self';
-            `.replace(/\s+/g, ' ').trim(),
+            `
+              .replace(/\s+/g, ' ')
+              .trim(),
           },
         ],
       },
@@ -233,10 +235,7 @@ export const rateLimit = (request: NextRequest) => {
       data.count = 1;
       data.resetTime = now + RATE_LIMIT_WINDOW;
     } else if (data.count >= RATE_LIMIT) {
-      return NextResponse.json(
-        { error: 'Too many requests' },
-        { status: 429 }
-      );
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     } else {
       data.count++;
     }
@@ -252,12 +251,12 @@ export const rateLimit = (request: NextRequest) => {
 // middleware.ts
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
-  
+
   response.headers.set('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   response.headers.set('Access-Control-Allow-Credentials', 'true');
-  
+
   return response;
 }
 ```
@@ -334,18 +333,21 @@ export class ErrorBoundary extends React.Component<Props, State> {
 ### Code Review Checklist
 
 1. **Authentication**
+
    - Verify JWT implementation
    - Check session management
    - Validate token expiration
    - Test password policies
 
 2. **Authorization**
+
    - Verify role-based access
    - Check permission checks
    - Test API endpoints
    - Validate user input
 
 3. **Data Protection**
+
    - Verify encryption
    - Check secure storage
    - Test data validation
@@ -360,18 +362,21 @@ export class ErrorBoundary extends React.Component<Props, State> {
 ### Regular Security Tasks
 
 1. **Dependencies**
+
    ```bash
    npm audit
    npm audit fix
    ```
 
 2. **Code Scanning**
+
    ```bash
    npm run lint
    npm run type-check
    ```
 
 3. **Security Testing**
+
    ```bash
    npm run security-test
    ```
@@ -387,18 +392,21 @@ export class ErrorBoundary extends React.Component<Props, State> {
 ### Response Plan
 
 1. **Identification**
+
    - Monitor error logs
    - Check security alerts
    - Review access patterns
    - Identify affected systems
 
 2. **Containment**
+
    - Isolate affected systems
    - Block malicious IPs
    - Revoke compromised tokens
    - Update security measures
 
 3. **Eradication**
+
    - Fix vulnerabilities
    - Update dependencies
    - Patch systems
@@ -413,6 +421,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
 ### Communication Plan
 
 1. **Internal**
+
    - Notify team
    - Document incident
    - Update procedures
@@ -428,4 +437,4 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
 - Review [Development Guide](./development.md)
 - Check [Testing Guide](./testing.md)
-- Read [Deployment Guide](./deployment.md) 
+- Read [Deployment Guide](./deployment.md)

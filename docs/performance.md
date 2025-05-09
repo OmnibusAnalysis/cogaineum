@@ -7,12 +7,14 @@ This guide provides comprehensive performance optimization practices for the Cog
 ### Core Web Vitals
 
 1. **Largest Contentful Paint (LCP)**
+
    - Target: < 2.5 seconds
    - Measures loading performance
    - Optimize images and fonts
    - Use proper caching
 
 2. **First Input Delay (FID)**
+
    - Target: < 100 milliseconds
    - Measures interactivity
    - Reduce JavaScript execution
@@ -142,7 +144,7 @@ export const getCachedData = async (key: string, fetchFn: () => Promise<any>) =>
 ```javascript
 // next.config.js
 module.exports = {
-  webpack: (config) => {
+  webpack: config => {
     config.optimization = {
       ...config.optimization,
       usedExports: true,
@@ -228,12 +230,14 @@ webpagetest test https://example.com
 ### Code Optimization
 
 1. **JavaScript**
+
    - Use proper code splitting
    - Implement lazy loading
    - Optimize event handlers
    - Use proper data structures
 
 2. **CSS**
+
    - Use CSS modules
    - Implement critical CSS
    - Optimize animations
@@ -248,12 +252,14 @@ webpagetest test https://example.com
 ### Asset Optimization
 
 1. **Images**
+
    - Use modern formats (WebP)
    - Implement responsive images
    - Use proper compression
    - Implement lazy loading
 
 2. **Fonts**
+
    - Use system fonts
    - Implement font display
    - Use font subsets
@@ -270,12 +276,14 @@ webpagetest test https://example.com
 ### Development
 
 1. **Code**
+
    - Implement proper imports
    - Use proper data structures
    - Optimize algorithms
    - Follow best practices
 
 2. **Assets**
+
    - Optimize images
    - Implement proper fonts
    - Use proper caching
@@ -290,6 +298,7 @@ webpagetest test https://example.com
 ### Production
 
 1. **Monitoring**
+
    - Track performance metrics
    - Monitor error rates
    - Check resource usage
@@ -306,4 +315,4 @@ webpagetest test https://example.com
 - Review [Development Guide](./development.md)
 - Check [Testing Guide](./testing.md)
 - Read [Deployment Guide](./deployment.md)
-- Review [Security Guide](./security.md) 
+- Review [Security Guide](./security.md)

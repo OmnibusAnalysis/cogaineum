@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { useEffect } from "react"
-import Script from "next/script"
+import { useEffect } from 'react';
+import Script from 'next/script';
 
 interface GtagEvent {
-  event_category: string
-  event_label: string
-  value?: number
+  event_category: string;
+  event_label: string;
+  value?: number;
 }
 
 declare global {
   interface Window {
-    gtag: (command: string, ...args: (string | GtagEvent)[]) => void
-    dataLayer: unknown[]
+    gtag: (command: string, ...args: (string | GtagEvent)[]) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -22,40 +22,40 @@ export default function Analytics() {
   useEffect(() => {
     // Track custom events
     const trackEvent = (action: string, category: string, label: string, value?: number) => {
-      window.gtag("event", action, {
+      window.gtag('event', action, {
         event_category: category,
         event_label: label,
         value: value,
-      })
-    }
+      });
+    };
 
     // Track form submissions
     const handleFormSubmit = (e: SubmitEvent) => {
-      const form = e.target as HTMLFormElement
+      const form = e.target as HTMLFormElement;
       if (form.id) {
-        trackEvent("form_submit", "form", form.id)
+        trackEvent('form_submit', 'form', form.id);
       }
-    }
+    };
 
     // Track button clicks
     const handleButtonClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      const button = target.closest("button")
+      const target = e.target as HTMLElement;
+      const button = target.closest('button');
       if (button?.id) {
-        trackEvent("button_click", "button", button.id)
+        trackEvent('button_click', 'button', button.id);
       }
-    }
+    };
 
     // Add event listeners
-    document.addEventListener("submit", handleFormSubmit)
-    document.addEventListener("click", handleButtonClick)
+    document.addEventListener('submit', handleFormSubmit);
+    document.addEventListener('click', handleButtonClick);
 
     // Cleanup
     return () => {
-      document.removeEventListener("submit", handleFormSubmit)
-      document.removeEventListener("click", handleButtonClick)
-    }
-  }, [])
+      document.removeEventListener('submit', handleFormSubmit);
+      document.removeEventListener('click', handleButtonClick);
+    };
+  }, []);
 
   return (
     <>
@@ -78,5 +78,5 @@ export default function Analytics() {
         }}
       />
     </>
-  )
-} 
+  );
+}

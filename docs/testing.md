@@ -7,12 +7,14 @@ This guide provides comprehensive instructions for testing the Cogaineum project
 ### Test Types
 
 1. **Unit Tests**
+
    - Test individual components
    - Test utility functions
    - Test hooks
    - Test form validation
 
 2. **Integration Tests**
+
    - Test component interactions
    - Test form submissions
    - Test API integrations
@@ -53,11 +55,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/$1',
   },
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
-  collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**',
-  ],
+  collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
 };
 ```
 
@@ -175,7 +173,7 @@ afterAll(() => server.close());
 describe('UserProfile', () => {
   it('fetches and displays user data', async () => {
     render(<UserProfile />);
-    
+
     await waitFor(() => {
       expect(screen.getByText('John Doe')).toBeInTheDocument();
     });
@@ -257,16 +255,19 @@ npm test -- --coverage
 ## Best Practices
 
 1. **Test Organization**
+
    - Group related tests
    - Use descriptive test names
    - Follow the AAA pattern (Arrange, Act, Assert)
 
 2. **Test Isolation**
+
    - Mock external dependencies
    - Reset state between tests
    - Use cleanup functions
 
 3. **Test Data**
+
    - Use realistic test data
    - Create test data factories
    - Keep test data up to date
@@ -279,11 +280,13 @@ npm test -- --coverage
 ## Common Issues
 
 1. **Async Tests**
+
    - Use proper async/await
    - Handle timeouts
    - Clean up resources
 
 2. **State Management**
+
    - Reset state between tests
    - Mock global state
    - Handle side effects
@@ -297,4 +300,4 @@ npm test -- --coverage
 
 - Review [Development Guide](./development.md)
 - Check [Deployment Guide](./deployment.md)
-- Read [Security Guide](./security.md) 
+- Read [Security Guide](./security.md)

@@ -149,16 +149,19 @@ The project uses the following import aliases:
 ## Best Practices
 
 1. **Component Organization**
+
    - Keep components small and focused
    - Use composition over inheritance
    - Follow the single responsibility principle
 
 2. **File Structure**
+
    - Group related files together
    - Use index files for clean exports
    - Keep file names descriptive
 
 3. **Code Organization**
+
    - Use TypeScript for type safety
    - Follow consistent naming conventions
    - Document complex logic
@@ -172,4 +175,4 @@ The project uses the following import aliases:
 
 - Read the [Development Guide](./development.md)
 - Learn about [Testing](./testing.md)
-- Understand [Deployment](./deployment.md) 
+- Understand [Deployment](./deployment.md)
