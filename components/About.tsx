@@ -114,17 +114,17 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                 door closes, use an R-Key to open the next.
               </p>
             </div>
-            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-8 sm:pt-12 pb-8 sm:pb-12">
+            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-6 sm:pt-12 pb-6 sm:pb-12 px-2 sm:px-4">
               <DarkReaderCompatibleImage
                 src="/monopowerly.webp"
                 alt="monopowerly"
                 width={300}
                 height={300}
-                className="mb-4 rounded shadow-lg w-[200px] sm:w-[300px]"
+                className="mb-2 sm:mb-4 rounded shadow-lg w-[180px] sm:w-[300px]"
                 priority
               />
-              <span className="text-xl sm:text-2xl">Monopowerly</span>
-              <p className="text-xs sm:text-sm text-center px-2 sm:px-4 mt-2 text-gray-300 max-w-md">
+              <span className="text-xl sm:text-2xl mb-1 sm:mb-2">Monopowerly</span>
+              <p className="text-xs sm:text-sm text-center mt-1 sm:mt-2 text-gray-300 max-w-md">
                 Monopowerly emerged as my Christmas 2023 gift in relation to Hasbro&apos;s{' '}
                 <a
                   href="https://www.socialsamosa.com/campaign-spot/monopoly-new-ad-says-all-is-fair-in-fun-games-1386620"
