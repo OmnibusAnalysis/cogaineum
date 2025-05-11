@@ -98,73 +98,52 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
         </button>
 
         {/* Mobile menu overlay */}
-        {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-lg z-40">
-            <div className="flex flex-col h-full">
-              {/* Close button */}
-              <div className="flex justify-end p-4">
+        <div 
+          className={`md:hidden fixed top-[72px] left-0 right-0 h-[40%] z-40 bg-[#000000] transform transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'
+          }`}
+        >
+          <div className="flex flex-col h-full p-0 m-0">
+            {/* Mobile menu items */}
+            <ul className="flex flex-col items-center justify-start space-y-6 p-0 m-0">
+              <li>
                 <button
-                  onClick={toggleMenu}
-                  className="text-white p-2 focus:outline-none"
-                  aria-label="Close menu"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  Home
                 </button>
-              </div>
-
-              {/* Mobile menu items */}
-              <ul className="flex flex-col items-center justify-center flex-grow space-y-8">
-                <li>
-                  <button
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setIsMenuOpen(false);
-                    }}
-                    className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
-                  >
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleNavClick(aboutRef)}
-                    className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
-                  >
-                    About
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleNavClick(contactRef)}
-                    className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
-                  >
-                    Contact
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleNavClick(donateRef)}
-                    className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
-                  >
-                    Donate
-                  </button>
-                </li>
-              </ul>
-            </div>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavClick(aboutRef)}
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                >
+                  About
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavClick(contactRef)}
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                >
+                  Contact
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavClick(donateRef)}
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                >
+                  Donate
+                </button>
+              </li>
+            </ul>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

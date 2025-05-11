@@ -231,10 +231,10 @@ textarea:focus {
 
 /* Navbar styles */
 nav {
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: none;
+  background-color: #000000;
   border-bottom: 1px solid rgba(75, 85, 99, 0.3);
-  transition: opacity 0.8s ease-in-out; /* Increased from 0.5s to 0.8s for smoother transition */
+  transition: opacity 0.8s ease-in-out;
 }
 
 nav button {
