@@ -114,13 +114,13 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                 door closes, use an R-Key to open the next.
               </p>
             </div>
-            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-6 sm:pt-12 pb-6 sm:pb-12 px-2 sm:px-4">
+            <div className="bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center py-6 sm:py-12 px-2 sm:px-4 sm:aspect-square">
               <DarkReaderCompatibleImage
                 src="/monopowerly.webp"
                 alt="monopowerly"
                 width={300}
                 height={300}
-                className="mb-2 sm:mb-4 rounded shadow-lg w-[180px] sm:w-[300px]"
+                className="mb-2 sm:mb-4 rounded shadow-lg w-[160px] sm:w-[300px]"
                 priority
               />
               <span className="text-xl sm:text-2xl mb-1 sm:mb-2">Monopowerly</span>
