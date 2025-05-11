@@ -74,15 +74,15 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
     <div
       ref={ref}
       data-testid="about-container"
-      className="min-h-screen bg-black px-6 py-24 animate-fade-in"
+      className="min-h-screen bg-black px-4 sm:px-6 py-12 sm:py-24 animate-fade-in"
       style={style}
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
           About the Artist
         </h2>
 
-        <div className="space-y-6 text-lg">
+        <div className="space-y-4 sm:space-y-6 text-base sm:text-lg">
           <p>
             My name is Robert Maxwell Remlinger, the creator and human thought process behind
             Cogaineum. I am a native of Springfield, Ohio and currently reside in Cincinnati, Ohio.
@@ -98,32 +98,32 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
             believer in the power of the individual and the importance of personal expression.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center pt-16 pb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mt-8 sm:mt-12">
+            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center pt-8 sm:pt-16 pb-8 sm:pb-12">
               <DarkReaderCompatibleImage
                 src="/an-r-key.webp"
                 alt="an-r-key"
                 width={300}
                 height={300}
-                className="mb-4 rounded shadow-lg"
+                className="mb-4 rounded shadow-lg w-[200px] sm:w-[300px]"
                 priority
               />
-              <span className="text-2xl">An-R-Key</span>
-              <p className="text-sm text-center px-12 mt-4 text-gray-300">
+              <span className="text-xl sm:text-2xl">An-R-Key</span>
+              <p className="text-sm text-center px-4 sm:px-12 mt-2 sm:mt-4 text-gray-300">
                 Anarchy is uncut, raw, a blank slate which unlocks your inner workings. When one
                 door closes, use an R-Key to open the next.
               </p>
             </div>
-            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-12 pb-12">
+            <div className="aspect-square bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center pt-8 sm:pt-12 pb-8 sm:pb-12">
               <DarkReaderCompatibleImage
                 src="/monopowerly.webp"
                 alt="monopowerly"
                 width={300}
                 height={300}
-                className="mb-4 rounded shadow-lg"
+                className="mb-4 rounded shadow-lg w-[200px] sm:w-[300px]"
                 priority
               />
-              <span className="text-2xl">Monopowerly</span>
+              <span className="text-xl sm:text-2xl">Monopowerly</span>
               <p className="text-sm text-center px-4 mt-2 text-gray-300 max-w-md">
                 Monopowerly emerged as my Christmas 2023 gift in relation to Hasbro&apos;s{' '}
                 <a
@@ -132,15 +132,16 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                   rel="noopener noreferrer"
                   className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline"
                 >
-                  Christmas advertising campaign 
-                </a> for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
+                  Christmas advertising campaign
+                </a>
+                for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
                 this campaign, Hasbro is showcasing bad behavior as acceptable using the tagline,
                 &quot;All is fair...&quot;. Following their lead, and made my own version using the
                 facilities at the Cincinnati Public Library.
               </p>
             </div>
             <div className="col-span-1 md:col-span-2 flex justify-center">
-              <div className="w-3/4 bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center py-8 px-4">
+              <div className="w-full sm:w-3/4 bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center py-6 sm:py-8 px-4">
                 <p className="text-sm text-center text-gray-300 max-w-2xl">
                   Monopowerly is open source. <a href="/monopowerly_image_set" className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline">Click here</a> to download the files to take to your local library and make your own copy.
                 </p>

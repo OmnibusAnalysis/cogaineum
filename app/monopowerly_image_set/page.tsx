@@ -27,16 +27,16 @@ export default function MonopowerlyImageSet() {
   ];
 
   return (
-    <div className="min-h-screen bg-black px-6 py-24">
+    <div className="min-h-screen bg-black px-4 sm:px-6 py-12 sm:py-24">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
           Monopowerly Image Set
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {images.map((image, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-purple-900 to-pink-800 p-4 rounded-lg transition-transform hover:scale-102"
+              className="bg-gradient-to-br from-purple-900 to-pink-800 p-3 sm:p-4 rounded-lg transition-transform hover:scale-102"
             >
               <div className="relative aspect-square">
                 <Image
@@ -44,7 +44,7 @@ export default function MonopowerlyImageSet() {
                   alt={image.alt}
                   fill
                   className="object-contain rounded"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   style={{
                     position: 'absolute',
                     height: '100%',
@@ -61,7 +61,7 @@ export default function MonopowerlyImageSet() {
         <div className="text-center">
           <a
             href="/monopowerly_image_set/monopowerly_image_set.zip"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:opacity-90 transition-opacity"
+            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg hover:opacity-90 transition-opacity text-sm sm:text-base"
           >
             Download All Images
           </a>
