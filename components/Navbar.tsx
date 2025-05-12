@@ -112,7 +112,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     setIsMenuOpen(false);
                   }}
-                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl text-center w-full"
                 >
                   Home
                 </button>
@@ -120,7 +120,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
               <li>
                 <button
                   onClick={() => handleNavClick(aboutRef)}
-                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl text-center w-full"
                 >
                   About
                 </button>
@@ -128,7 +128,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
               <li>
                 <button
                   onClick={() => handleNavClick(contactRef)}
-                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl text-center w-full"
                 >
                   Contact
                 </button>
@@ -136,7 +136,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
               <li>
                 <button
                   onClick={() => handleNavClick(donateRef)}
-                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl"
+                  className="text-white hover:text-purple-400 transition-colors duration-300 text-2xl text-center w-full"
                 >
                   Donate
                 </button>
