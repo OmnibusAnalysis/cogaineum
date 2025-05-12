@@ -53,7 +53,7 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
           <div 
             className="transition-opacity duration-500"
             style={{
-              opacity: Math.min(1, Math.max(0, 1 - (scrollOpacity - 0.95) * 3))
+              opacity: Math.min(1, Math.max(0, 1 - (scrollOpacity - 0.95) * 20))
             }}
           >
             <div className="space-y-4">
@@ -75,7 +75,7 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
           <div 
             className="transition-opacity duration-500 mt-8"
             style={{
-              opacity: Math.min(1, Math.max(0, (scrollOpacity - 0.95) * 3))
+              opacity: Math.min(1, Math.max(0, (scrollOpacity - 0.97) * 20))
             }}
           >
             <div className="space-y-4">
