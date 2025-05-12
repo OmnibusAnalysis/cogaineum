@@ -40,7 +40,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                 </h3>
 
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="text-lg font-medium text-gray-300">@CoGaineum-Art</div>
+                  <div className="text-lg font-medium text-gray-300">@Rob-Remlinger</div>
                   <button
                     onClick={copyVenmoId}
                     className="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-sm transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -80,8 +80,9 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                 {/* Placeholder for Venmo QR code */}
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
                   <div className="text-white text-center px-4">
-                    <p className="font-bold">Venmo QR Code</p>
-                    <p className="text-sm mt-2">Scan with your phone camera</p>
+                    <p className="font-bold">
+                      <img src="/RMR_venmo.png" alt="Venmo QR Code" />
+                    </p>
                   </div>
                 </div>
               </div>
