@@ -28,9 +28,9 @@ export default function Portfolio() {
   const [aboutScrollOpacity, setAboutScrollOpacity] = useState(0);
   const [navbarOpacity, setNavbarOpacity] = useState(0);
 
-  const aboutSectionRef = useRef<HTMLDivElement>(null);
-  const contactSectionRef = useRef<HTMLDivElement>(null);
-  const donateSectionRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null!);
+  const contactSectionRef = useRef<HTMLDivElement>(null!);
+  const donateSectionRef = useRef<HTMLDivElement>(null!);
 
   // Animation duration in milliseconds
   const animationDuration = 2500;
@@ -121,7 +121,7 @@ export default function Portfolio() {
   }, []);
 
   // Add scroll to section function
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }

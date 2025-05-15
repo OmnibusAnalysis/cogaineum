@@ -3,12 +3,25 @@ import Navbar from '@/components/Navbar';
 import { createRef } from 'react';
 
 describe('Navbar', () => {
+  const aboutRef = createRef<HTMLDivElement>();
+  const contactRef = createRef<HTMLDivElement>();
+  const donateRef = createRef<HTMLDivElement>();
+
+  // Create and assign div elements to refs
+  const aboutDiv = document.createElement('div');
+  const contactDiv = document.createElement('div');
+  const donateDiv = document.createElement('div');
+
+  aboutRef.current = aboutDiv;
+  contactRef.current = contactDiv;
+  donateRef.current = donateDiv;
+
   const mockProps = {
     opacity: 1,
     scrollToSection: jest.fn(),
-    aboutRef: createRef<HTMLDivElement>(),
-    contactRef: createRef<HTMLDivElement>(),
-    donateRef: createRef<HTMLDivElement>(),
+    aboutRef,
+    contactRef,
+    donateRef,
   };
 
   it('renders the navigation links', () => {

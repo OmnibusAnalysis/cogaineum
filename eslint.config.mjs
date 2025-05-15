@@ -1,6 +1,8 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,9 +26,18 @@ const config = [
     ],
   },
   // Apply rules only to source files
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...compat.extends('next/core-web-vitals'),
   {
-    files: ['app/**/*.{js,jsx,ts,tsx}', 'pages/**/*.{js,jsx,ts,tsx}', 'src/**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tseslint,
+    },
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -37,8 +48,6 @@ const config = [
         },
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@next/next/no-img-element': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/ban-ts-comment': [
         'error',
         {
@@ -48,6 +57,13 @@ const config = [
           'ts-check': false,
         },
       ],
+    },
+  },
+  {
+    files: ['app/**/*.{js,jsx,ts,tsx}', 'pages/**/*.{js,jsx,ts,tsx}', 'src/**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      '@next/next/no-img-element': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
       '@next/next/no-assign-module-variable': 'off',
     },
   },

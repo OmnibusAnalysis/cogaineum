@@ -6,9 +6,11 @@ import type { ImageProps } from 'next/image';
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ alt, ...props }: ImageProps) => {
+  default: ({ alt, src, ...props }: ImageProps) => {
+    // Ensure src is always a string for <img>
+    const imgSrc = typeof src === 'string' ? src : (src as any).src;
     // eslint-disable-next-line @next/next/no-img-element
-    return <img alt={alt} {...props} />;
+    return <img alt={alt} src={imgSrc} {...props} />;
   },
 }));
 

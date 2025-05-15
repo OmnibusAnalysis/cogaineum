@@ -3,14 +3,7 @@
 import type React from 'react';
 import { useState } from 'react';
 import type { FC } from 'react';
-
-interface NavbarProps {
-  opacity: number;
-  scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
-  aboutRef: React.RefObject<HTMLDivElement | null>;
-  contactRef: React.RefObject<HTMLDivElement | null>;
-  donateRef: React.RefObject<HTMLDivElement | null>;
-}
+import type { NavbarProps } from '@/app/types';
 
 const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRef, donateRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +12,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleNavClick = (ref: React.RefObject<HTMLDivElement>) => {
+  const handleNavClick = (ref: React.RefObject<HTMLDivElement | null>) => {
     scrollToSection(ref);
     setIsMenuOpen(false);
   };
