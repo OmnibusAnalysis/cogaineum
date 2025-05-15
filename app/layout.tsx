@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: {
@@ -42,14 +42,6 @@ export const metadata: Metadata = {
       'An artist portfolio showcasing creative works and digital art by RMR. Explore unique pieces, contact for commissions, and support the artist through donations.',
     url: 'https://cogaineum.art',
     siteName: 'Cogaineum',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Cogaineum Art Portfolio',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -58,7 +50,6 @@ export const metadata: Metadata = {
     title: 'Cogaineum | RMR',
     description:
       'An artist portfolio showcasing creative works and digital art by RMR. Explore unique pieces, contact for commissions, and support the artist through donations.',
-    images: ['/twitter-image.jpg'],
     creator: '@cogaineum',
   },
   robots: {
@@ -72,9 +63,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-site-verification',
-  },
 };
 
 export default function RootLayout({
@@ -83,13 +71,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className={`${inter.className} dark:bg-black dark:text-white`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark scroll-smooth">
+      <body 
+        className={`${inter.className} min-h-screen bg-black text-white antialiased`} 
+        suppressHydrationWarning
+      >
         <ErrorBoundary>{children}</ErrorBoundary>
         <Analytics />
       </body>

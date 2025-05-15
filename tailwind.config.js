@@ -13,7 +13,18 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
       },
+      backgroundColor: {
+        DEFAULT: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+      },
+      textColor: {
+        DEFAULT: 'hsl(var(--foreground))',
+        foreground: 'hsl(var(--background))',
+      },
     },
   },
   plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };
