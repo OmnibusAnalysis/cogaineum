@@ -1,6 +1,7 @@
 'use client';
 
 import { forwardRef, useState } from 'react';
+import Image from 'next/image';
 
 const Donate = forwardRef<HTMLDivElement>((props, ref) => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -77,13 +78,14 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
             {/* Right column - QR code */}
             <div className="flex flex-col items-center">
               <div className="w-64 h-64 bg-white p-4 rounded-lg shadow-lg">
-                {/* Placeholder for Venmo QR code */}
-                <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
-                  <div className="text-white text-center px-4">
-                    <p className="font-bold">
-                      <img src="/RMR_venmo.png" alt="Venmo QR Code" />
-                    </p>
-                  </div>
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/RMR_venmo.png"
+                    alt="Venmo QR Code"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    priority
+                  />
                 </div>
               </div>
               <p className="mt-4 text-gray-400 text-center">Scan to donate directly</p>

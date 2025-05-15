@@ -51,14 +51,14 @@ const DarkReaderCompatibleImage = ({
   }
 
   return (
-    <div className={className}>
+    <div className={className} style={{ position: 'relative', aspectRatio: `${width}/${height}` }}>
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
+        fill
         priority={priority}
         style={{
+          objectFit: 'contain',
           color: 'transparent',
           ...(isDarkReaderActive && {
             '--darkreader-inline-color': 'transparent',
@@ -99,17 +99,17 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mt-8 sm:mt-12">
-            <div className="aspect-square bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center pt-8 sm:pt-16 pb-8 sm:pb-12">
+            <div className="bg-gradient-to-br from-purple-900 to-pink-800 rounded-lg flex flex-col items-center justify-center py-6 sm:py-12 px-2 sm:px-4 sm:aspect-square">
               <DarkReaderCompatibleImage
                 src="/an-r-key.webp"
                 alt="an-r-key"
                 width={300}
                 height={300}
-                className="mb-4 rounded shadow-lg w-[200px] sm:w-[300px]"
+                className="mb-2 sm:mb-4 rounded shadow-lg w-full max-w-[160px] sm:max-w-[300px]"
                 priority
               />
-              <span className="text-xl sm:text-2xl">An-R-Key</span>
-              <p className="text-sm text-center px-4 sm:px-12 mt-2 sm:mt-4 text-gray-300">
+              <span className="text-xl sm:text-2xl mb-1 sm:mb-2">An-R-Key</span>
+              <p className="text-xs sm:text-sm text-center mt-1 sm:mt-2 text-gray-300 max-w-md">
                 Anarchy is uncut, raw, a blank slate which unlocks your inner workings. When one
                 door closes, use an R-Key to open the next.
               </p>
@@ -120,7 +120,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                 alt="monopowerly"
                 width={300}
                 height={300}
-                className="mb-2 sm:mb-4 rounded shadow-lg w-[160px] sm:w-[300px]"
+                className="mb-2 sm:mb-4 rounded shadow-lg w-full max-w-[160px] sm:max-w-[300px]"
                 priority
               />
               <span className="text-xl sm:text-2xl mb-1 sm:mb-2">Monopowerly</span>
