@@ -10,8 +10,14 @@ export default function MonopowerlyImageSet() {
     { src: '/monopowerly_image_set/Cards_print_image2.jpg', alt: 'Cards Print 2' },
     { src: '/monopowerly_image_set/Cards_print_image3.jpg', alt: 'Cards Print 3' },
     { src: '/monopowerly_image_set/Cards_print_image4.jpg', alt: 'Cards Print 4' },
-    { src: '/monopowerly_image_set/Cards_print_image_reverse_PR.jpg', alt: 'Cards Print Reverse PR' },
-    { src: '/monopowerly_image_set/Cards_print_image_reverse_RMF.jpg', alt: 'Cards Print Reverse RMF' },
+    {
+      src: '/monopowerly_image_set/Cards_print_image_reverse_PR.jpg',
+      alt: 'Cards Print Reverse PR',
+    },
+    {
+      src: '/monopowerly_image_set/Cards_print_image_reverse_RMF.jpg',
+      alt: 'Cards Print Reverse RMF',
+    },
     { src: '/monopowerly_image_set/Industries_print_image1.jpg', alt: 'Industries Print 1' },
     { src: '/monopowerly_image_set/Industries_print_image2.jpg', alt: 'Industries Print 2' },
     { src: '/monopowerly_image_set/Industries_print_image3.jpg', alt: 'Industries Print 3' },
@@ -51,7 +57,7 @@ export default function MonopowerlyImageSet() {
                     width: '100%',
                     inset: 0,
                     objectFit: 'contain',
-                    color: 'transparent'
+                    color: 'transparent',
                   }}
                 />
               </div>
@@ -69,4 +75,4 @@ export default function MonopowerlyImageSet() {
       </div>
     </div>
   );
-} 
+}

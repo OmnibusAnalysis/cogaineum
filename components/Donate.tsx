@@ -1,6 +1,7 @@
 'use client';
 
 import { forwardRef, useState } from 'react';
+import Image from 'next/image';
 
 const Donate = forwardRef<HTMLDivElement>((props, ref) => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -81,7 +82,13 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
                   <div className="text-white text-center px-4">
                     <p className="font-bold">
-                      <img src="/RMR_venmo.png" alt="Venmo QR Code" />
+                      <Image
+                        src="/RMR_venmo.png"
+                        alt="Venmo QR Code"
+                        width={256}
+                        height={256}
+                        className="rounded"
+                      />
                     </p>
                   </div>
                 </div>

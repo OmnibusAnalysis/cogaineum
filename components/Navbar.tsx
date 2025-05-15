@@ -98,9 +98,11 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
         </button>
 
         {/* Mobile menu overlay */}
-        <div 
+        <div
           className={`md:hidden fixed top-[72px] left-0 right-0 h-[40%] z-40 bg-black opacity-100 transform transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'translate-y-0 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'
+            isMenuOpen
+              ? 'translate-y-0 pointer-events-auto'
+              : '-translate-y-full opacity-0 pointer-events-none'
           }`}
         >
           <div className="flex flex-col h-full p-0 m-0">

@@ -133,8 +133,8 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
                   className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline"
                 >
                   Christmas advertising campaign
-                </a>
-                {' '}for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
+                </a>{' '}
+                for their (stolen) intellectual property game branded as &quot;Monopoly&quot;. In
                 this campaign, Hasbro is showcasing bad behavior as acceptable using the tagline,
                 &quot;All is fair...&quot;. Following their lead, and made my own version using the
                 facilities at the Cincinnati Public Library.
@@ -143,10 +143,17 @@ const About = forwardRef<HTMLDivElement, AboutProps>(({ style }, ref) => {
             <div className="col-span-1 md:col-span-2 flex justify-center">
               <div className="w-full sm:w-3/4 bg-gradient-to-bl from-pink-800 to-purple-900 rounded-lg flex flex-col items-center justify-center py-6 sm:py-8 px-4">
                 <p className="text-sm text-center text-gray-300 max-w-2xl">
-                  Monopowerly is open source. <a href="/monopowerly_image_set" className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline">Click here</a> to download the files to take to your local library and make your own copy.
+                  Monopowerly is open source.{' '}
+                  <a
+                    href="/monopowerly_image_set"
+                    className="text-purple-400 hover:text-pink-400 transition-colors duration-200 underline"
+                  >
+                    Click here
+                  </a>{' '}
+                  to download the files to take to your local library and make your own copy.
                 </p>
               </div>
-            </div>        
+            </div>
           </div>
         </div>
       </div>

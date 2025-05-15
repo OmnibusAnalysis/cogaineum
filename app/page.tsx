@@ -150,13 +150,6 @@ export default function Portfolio() {
     }
   };
 
-  // Ensure refs are non-null before passing to components
-  const safeRefs = {
-    about: aboutSectionRef as React.RefObject<HTMLDivElement>,
-    contact: contactSectionRef as React.RefObject<HTMLDivElement>,
-    donate: donateSectionRef as React.RefObject<HTMLDivElement>
-  };
-
   return (
     <div className="bg-black">
       {/* Skip to main content link */}

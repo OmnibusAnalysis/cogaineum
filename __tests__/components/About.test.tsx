@@ -1,13 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import About from '@/components/About';
 import '@testing-library/jest-dom';
+import type { ImageProps } from 'next/image';
 
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ priority, ...props }: any) => {
+  default: ({ alt, ...props }: ImageProps) => {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} />;
+    return <img alt={alt} {...props} />;
   },
 }));
 
