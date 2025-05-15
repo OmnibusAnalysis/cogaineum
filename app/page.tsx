@@ -75,25 +75,25 @@ export default function Portfolio() {
 
       // Hero fade out (0% to 100% of viewport)
       const heroFadeStart = 0;
-      const heroFadeEnd = viewportHeight;
+      const heroFadeEnd = viewportHeight * 0.8;
       const heroOpacity = Math.max(
         0,
         Math.min(1, 1 - (scrollY - heroFadeStart) / (heroFadeEnd - heroFadeStart))
       );
       setHeroScrollOpacity(heroOpacity);
-      setHeroBlurAmount((1 - heroOpacity) * 15);
+      setHeroBlurAmount((1 - heroOpacity) * 10);
 
-      // Intro fade in (100% to 130% of viewport)
-      const introFadeInStart = viewportHeight;
-      const introFadeInEnd = viewportHeight * 1.3;
+      // Intro fade in (80% to 100% of viewport)
+      const introFadeInStart = viewportHeight * 0.8;
+      const introFadeInEnd = viewportHeight;
       const introFadeInOpacity = Math.max(
         0,
         Math.min(1, (scrollY - introFadeInStart) / (introFadeInEnd - introFadeInStart))
       );
 
-      // Intro fade out (230% to 250% of viewport) - moved much later
-      const introFadeOutStart = viewportHeight * 2.3;
-      const introFadeOutEnd = viewportHeight * 3.0;
+      // Intro fade out (150% to 200% of viewport)
+      const introFadeOutStart = viewportHeight * 1.5;
+      const introFadeOutEnd = viewportHeight * 2;
       const introFadeOutOpacity = Math.max(
         0,
         Math.min(1, 1 - (scrollY - introFadeOutStart) / (introFadeOutEnd - introFadeOutStart))
@@ -101,19 +101,25 @@ export default function Portfolio() {
 
       const introOpacity = Math.min(introFadeInOpacity, introFadeOutOpacity);
       setIntroScrollOpacity(introOpacity);
-      setIntroBlurAmount((1 - introOpacity) * 15);
+      setIntroBlurAmount((1 - introOpacity) * 10);
 
-      // About fade in (230% to 260% of viewport) - adjusted to match new Intro timing
-      const aboutFadeStart = viewportHeight * 2.3;
-      const aboutFadeEnd = viewportHeight * 2.6;
+      // About fade in (180% to 200% of viewport)
+      const aboutFadeStart = viewportHeight * 1.8;
+      const aboutFadeEnd = viewportHeight * 2;
       const aboutOpacity = Math.max(
         0,
         Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart))
       );
       setAboutScrollOpacity(aboutOpacity);
 
-      // Navbar opacity (tied to About section)
-      setNavbarOpacity(aboutOpacity);
+      // Navbar opacity (starts showing at 50% of viewport)
+      const navbarStart = viewportHeight * 0.5;
+      const navbarEnd = viewportHeight;
+      const navbarOpacity = Math.max(
+        0,
+        Math.min(1, (scrollY - navbarStart) / (navbarEnd - navbarStart))
+      );
+      setNavbarOpacity(navbarOpacity);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -158,7 +164,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen">
       {/* Skip to main content link */}
       <a
         href="#main-content"
@@ -171,7 +177,7 @@ export default function Portfolio() {
       {/* Main container with consistent black background */}
       <main
         id="main-content"
-        className="relative min-h-screen bg-black text-white overflow-x-hidden"
+        className="relative bg-black text-white"
         role="main"
         aria-label="Main content"
       >
@@ -183,25 +189,24 @@ export default function Portfolio() {
           donateRef={safeRefs.donate}
         />
 
-        <Hero
-          currentWord={currentWord}
-          isSpinning={isSpinning}
-          animationComplete={animationComplete}
-          scrollOpacity={heroScrollOpacity}
-          blurAmount={heroBlurAmount}
-        />
+        <div className="relative">
+          <Hero
+            currentWord={currentWord}
+            isSpinning={isSpinning}
+            animationComplete={animationComplete}
+            scrollOpacity={heroScrollOpacity}
+            blurAmount={heroBlurAmount}
+          />
 
-        <Intro scrollOpacity={introScrollOpacity} blurAmount={introBlurAmount} />
+          <Intro scrollOpacity={introScrollOpacity} blurAmount={introBlurAmount} />
 
-        {/* Content container that scrolls over the fixed background */}
-        <div className="relative z-20" role="region" aria-label="Content sections">
-          {/* Increased spacer to ensure intro stays visible much longer */}
-          <div className="h-[400vh]" aria-hidden="true"></div>
-
-          <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
-          <Contact ref={contactSectionRef} />
-          <Donate ref={donateSectionRef} />
-          <Footer />
+          {/* Content sections */}
+          <div className="relative z-20" role="region" aria-label="Content sections">
+            <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
+            <Contact ref={contactSectionRef} />
+            <Donate ref={donateSectionRef} />
+            <Footer />
+          </div>
         </div>
       </main>
     </div>
