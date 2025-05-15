@@ -18,7 +18,7 @@ const Hero: FC<HeroProps> = ({
   blurAmount,
 }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-10 bg-black">
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
       <div
         className="text-center transition-all duration-700 max-w-4xl mx-auto px-4"
         style={{

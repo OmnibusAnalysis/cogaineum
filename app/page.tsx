@@ -83,16 +83,16 @@ export default function Portfolio() {
       setHeroScrollOpacity(heroOpacity);
       setHeroBlurAmount((1 - heroOpacity) * 15);
 
-      // Intro fade in (100% to 130% of viewport)
+      // Intro fade in (100% to 120% of viewport) - shorter fade in
       const introFadeInStart = viewportHeight;
-      const introFadeInEnd = viewportHeight * 1.3;
+      const introFadeInEnd = viewportHeight * 1.2;
       const introFadeInOpacity = Math.max(
         0,
         Math.min(1, (scrollY - introFadeInStart) / (introFadeInEnd - introFadeInStart))
       );
 
-      // Intro fade out (330% to 350% of viewport) - moved much later
-      const introFadeOutStart = viewportHeight * 3.3;
+      // Intro fade out (250% to 350% of viewport) - starts later, longer fade out
+      const introFadeOutStart = viewportHeight * 2.5;
       const introFadeOutEnd = viewportHeight * 3.5;
       const introFadeOutOpacity = Math.max(
         0,
@@ -103,9 +103,9 @@ export default function Portfolio() {
       setIntroScrollOpacity(introOpacity);
       setIntroBlurAmount((1 - introOpacity) * 15);
 
-      // About fade in (330% to 360% of viewport) - adjusted to match new Intro timing
-      const aboutFadeStart = viewportHeight * 3.3;
-      const aboutFadeEnd = viewportHeight * 3.6;
+      // About fade in (400% to 430% of viewport) - starts after Intro is gone
+      const aboutFadeStart = viewportHeight * 4.0;
+      const aboutFadeEnd = viewportHeight * 4.3;
       const aboutOpacity = Math.max(
         0,
         Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart))
@@ -176,25 +176,30 @@ export default function Portfolio() {
           donateRef={donateSectionRef}
         />
 
-        <Hero
-          currentWord={currentWord}
-          isSpinning={isSpinning}
-          animationComplete={animationComplete}
-          scrollOpacity={heroScrollOpacity}
-          blurAmount={heroBlurAmount}
-        />
+        {/* Fixed sections with proper z-index layering */}
+        <div className="fixed inset-0 z-10 bg-black">
+          <Hero
+            currentWord={currentWord}
+            isSpinning={isSpinning}
+            animationComplete={animationComplete}
+            scrollOpacity={heroScrollOpacity}
+            blurAmount={heroBlurAmount}
+          />
 
-        <Intro scrollOpacity={introScrollOpacity} blurAmount={introBlurAmount} />
+          <Intro scrollOpacity={introScrollOpacity} blurAmount={introBlurAmount} />
+        </div>
 
-        {/* Content container that scrolls over the fixed background */}
+        {/* Scrollable content with higher z-index */}
         <div className="relative z-20" role="region" aria-label="Content sections">
-          {/* Increased spacer height to match new scroll timing */}
-          <div className="h-[400vh]" aria-hidden="true"></div>
+          {/* Increased spacer height to create more space between sections */}
+          <div className="h-[450vh]" aria-hidden="true"></div>
 
-          <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
-          <Contact ref={contactSectionRef} />
-          <Donate ref={donateSectionRef} />
-          <Footer />
+          <div className="relative bg-black">
+            <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
+            <Contact ref={contactSectionRef} />
+            <Donate ref={donateSectionRef} />
+            <Footer />
+          </div>
         </div>
       </main>
     </div>
