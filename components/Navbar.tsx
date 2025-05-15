@@ -7,9 +7,9 @@ import type { FC } from 'react';
 interface NavbarProps {
   opacity: number;
   scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
-  aboutRef: React.RefObject<HTMLDivElement>;
-  contactRef: React.RefObject<HTMLDivElement>;
-  donateRef: React.RefObject<HTMLDivElement>;
+  aboutRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
+  donateRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRef, donateRef }) => {

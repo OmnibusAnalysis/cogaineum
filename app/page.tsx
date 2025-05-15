@@ -178,9 +178,9 @@ export default function Portfolio() {
         <Navbar
           opacity={navbarOpacity}
           scrollToSection={scrollToSection}
-          aboutRef={safeRefs.about}
-          contactRef={safeRefs.contact}
-          donateRef={safeRefs.donate}
+          aboutRef={aboutSectionRef}
+          contactRef={contactSectionRef}
+          donateRef={donateSectionRef}
         />
 
         <Hero
