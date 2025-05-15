@@ -18,9 +18,9 @@ const Hero: FC<HeroProps> = ({
   blurAmount,
 }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-10">
+    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-10 bg-black">
       <div
-        className="text-center transition-all duration-700"
+        className="text-center transition-all duration-700 max-w-4xl mx-auto px-4"
         style={{
           opacity: scrollOpacity,
           filter: `blur(${blurAmount}px)`,
@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({
           visibility: scrollOpacity > 0 ? 'visible' : 'hidden',
         }}
       >
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter flex items-center justify-center">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter flex items-center justify-center">
           <div className="relative flex items-center gap-0">
             {/* Base text with Co and eum */}
             <span

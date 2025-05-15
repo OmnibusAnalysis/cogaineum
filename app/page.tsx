@@ -91,9 +91,9 @@ export default function Portfolio() {
         Math.min(1, (scrollY - introFadeInStart) / (introFadeInEnd - introFadeInStart))
       );
 
-      // Intro fade out (230% to 250% of viewport) - moved much later
-      const introFadeOutStart = viewportHeight * 2.3;
-      const introFadeOutEnd = viewportHeight * 3.0;
+      // Intro fade out (330% to 350% of viewport) - moved much later
+      const introFadeOutStart = viewportHeight * 3.3;
+      const introFadeOutEnd = viewportHeight * 3.5;
       const introFadeOutOpacity = Math.max(
         0,
         Math.min(1, 1 - (scrollY - introFadeOutStart) / (introFadeOutEnd - introFadeOutStart))
@@ -103,9 +103,9 @@ export default function Portfolio() {
       setIntroScrollOpacity(introOpacity);
       setIntroBlurAmount((1 - introOpacity) * 15);
 
-      // About fade in (230% to 260% of viewport) - adjusted to match new Intro timing
-      const aboutFadeStart = viewportHeight * 2.3;
-      const aboutFadeEnd = viewportHeight * 2.6;
+      // About fade in (330% to 360% of viewport) - adjusted to match new Intro timing
+      const aboutFadeStart = viewportHeight * 3.3;
+      const aboutFadeEnd = viewportHeight * 3.6;
       const aboutOpacity = Math.max(
         0,
         Math.min(1, (scrollY - aboutFadeStart) / (aboutFadeEnd - aboutFadeStart))
@@ -151,7 +151,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen">
       {/* Skip to main content link */}
       <a
         href="#main-content"
@@ -188,7 +188,7 @@ export default function Portfolio() {
 
         {/* Content container that scrolls over the fixed background */}
         <div className="relative z-20" role="region" aria-label="Content sections">
-          {/* Increased spacer to ensure intro stays visible much longer */}
+          {/* Increased spacer height to match new scroll timing */}
           <div className="h-[400vh]" aria-hidden="true"></div>
 
           <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
