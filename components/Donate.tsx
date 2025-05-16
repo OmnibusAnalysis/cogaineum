@@ -78,7 +78,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
             {/* Right column - QR code */}
             <div className="flex flex-col items-center">
               <div className="w-64 h-64 bg-white p-4 rounded-lg shadow-lg">
-                {/* Placeholder for Venmo QR code */}
+                {/* Venmo QR code */}
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
                   <div className="text-white text-center px-4">
                     <p className="font-bold">
