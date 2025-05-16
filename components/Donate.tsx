@@ -1,6 +1,7 @@
 'use client';
 
 import { forwardRef, useState } from 'react';
+import Image from 'next/image';
 
 const Donate = forwardRef<HTMLDivElement>((props, ref) => {
   const [copySuccess, setCopySuccess] = useState(false);
