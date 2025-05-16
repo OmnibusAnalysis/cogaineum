@@ -6,10 +6,10 @@ import type { FC } from 'react';
 
 interface NavbarProps {
   opacity: number;
-  scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
-  aboutRef: React.RefObject<HTMLDivElement>;
-  contactRef: React.RefObject<HTMLDivElement>;
-  donateRef: React.RefObject<HTMLDivElement>;
+  scrollToSection: (ref: React.RefObject<HTMLDivElement | null>) => void;
+  aboutRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
+  donateRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRef, donateRef }) => {
@@ -19,7 +19,7 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleNavClick = (ref: React.RefObject<HTMLDivElement>) => {
+  const handleNavClick = (ref: React.RefObject<HTMLDivElement | null>) => {
     scrollToSection(ref);
     setIsMenuOpen(false);
   };

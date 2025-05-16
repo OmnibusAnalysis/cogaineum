@@ -9,7 +9,7 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
   // Copy Venmo ID to clipboard
   const copyVenmoId = () => {
     navigator.clipboard
-      .writeText('@CoGaineum-Art')
+      .writeText('@Rob-Remlinger')
       .then(() => {
         setCopySuccess(true);
         setTimeout(() => setCopySuccess(false), 2000);
@@ -82,7 +82,12 @@ const Donate = forwardRef<HTMLDivElement>((props, ref) => {
                 <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
                   <div className="text-white text-center px-4">
                     <p className="font-bold">
-                      <img src="/RMR_venmo.png" alt="Venmo QR Code" />
+                      <Image 
+                        src="/RMR_venmo.png" 
+                        alt="Venmo QR Code" 
+                        width={200} 
+                        height={200}
+                      />
                     </p>
                   </div>
                 </div>
