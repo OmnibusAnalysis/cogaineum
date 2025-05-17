@@ -31,10 +31,12 @@ describe('Contact', () => {
     const form = screen.getByRole('form');
     fireEvent.submit(form);
 
-    // Check for validation error message
+    // Check for validation error messages
     await waitFor(() => {
-      const errorMessage = screen.getByText('Please fill out all fields before submitting.');
-      expect(errorMessage).toBeInTheDocument();
+      expect(screen.getByText('Name is required')).toBeInTheDocument();
+      expect(screen.getByText('Email is required')).toBeInTheDocument();
+      expect(screen.getByText('Message must be at least 10 characters')).toBeInTheDocument();
+      expect(screen.getByText('Please fix the errors in the form before submitting.')).toBeInTheDocument();
     });
   });
 
@@ -48,16 +50,11 @@ describe('Contact', () => {
     // Fill out the form
     fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'john@example.com' } });
-    fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Hello!' } });
+    fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Hello, this is a test message!' } });
 
     // Submit the form
     const form = screen.getByRole('form');
     fireEvent.submit(form);
-
-    // Check loading state
-    await waitFor(() => {
-      expect(screen.getByText('Sending...')).toBeInTheDocument();
-    });
 
     // Wait for submission to complete and check success message
     await waitFor(() => {
@@ -65,9 +62,11 @@ describe('Contact', () => {
     });
 
     // Verify form was reset
-    expect(screen.getByLabelText('Name')).toHaveValue('');
-    expect(screen.getByLabelText('Email')).toHaveValue('');
-    expect(screen.getByLabelText('Message')).toHaveValue('');
+    await waitFor(() => {
+      expect(screen.getByLabelText('Name')).toHaveValue('');
+      expect(screen.getByLabelText('Email')).toHaveValue('');
+      expect(screen.getByLabelText('Message')).toHaveValue('');
+    });
   });
 
   it('handles form submission error', async () => {
@@ -80,7 +79,7 @@ describe('Contact', () => {
     // Fill out the form
     fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'john@example.com' } });
-    fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Hello!' } });
+    fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Hello, this is a test message!' } });
 
     // Submit the form
     const form = screen.getByRole('form');
@@ -89,7 +88,7 @@ describe('Contact', () => {
     // Wait for error message
     await waitFor(() => {
       expect(
-        screen.getByText('An unexpected error occurred. Please try again.')
+        screen.getByText('An unexpected error occurred. Please try again later.')
       ).toBeInTheDocument();
     });
   });

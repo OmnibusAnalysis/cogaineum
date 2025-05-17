@@ -25,24 +25,26 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
         <div className="hidden md:block text-lg">
           <div className="space-y-6">
             <p className="text-gray-300 italic">
-              The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span>, a grand architectural feat of the Roman Empire, was emblematic of the
-              &ldquo;bread and circuses&rdquo; strategy—an elaborate spectacle designed to pacify and
-              distract the masses through displays of violence and death. It served as a political
-              tool, offering brutal entertainment to maintain control over an oppressed population.
+              The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span>, a grand architectural feat of 
+              the Roman Empire, was emblematic of the &ldquo;bread and circuses&rdquo; strategy—an 
+              elaborate spectacle designed to pacify an distract the masses through displays of violence 
+              and death. It served as a political tool, offering brutal entertainment to maintain control over 
+              an oppressed population.
             </p>
             <p className="text-gray-300 italic">
-              In contrast, &ldquo;<span style={{ letterSpacing: '0.1em' }}>Cogaineum</span>&rdquo; represents a radically different philosophy: the
-              use of entertainment not as a means of manipulation, but as a form of universal
-              expression and benefit.
+              In contrast, &ldquo;<span style={{ letterSpacing: '0.1em' }}>Cogaineum</span>&rdquo; 
+              represents a radically different philosophy: the use of entertainment not as a means of 
+              manipulation, but as a form of universalexpression and benefit.
             </p>
             <p className="text-gray-300 italic">
-              The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span> glorified the end of life for public amusement.
+              The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span> glorified the end of life for 
+              public amusement.
             </p>
             <p className="text-gray-300 italic">
-              <span style={{ letterSpacing: '0.15em' }}>Cogaineum</span> celebrates the absurdity and vibrancy of life itself. It thrives on
-              face-to-face interaction, transforming performance into a competitive, yet
-              collaborative, sport of art—one that invites participation, fosters creativity, and
-              reclaims entertainment as a shared human experience rather than a spectacle of
+              <span style={{ letterSpacing: '0.15em' }}>Cogaineum</span> celebrates the absurdity and 
+              vibrancy of life itself. It thrives on face-to-face interaction, transforming performance 
+              into a competitive, yet collaborative, sport of art—one that invites participation, fosters
+              creativity, and reclaims entertainment as a shared human experience rather than a spectacle of
               suffering.
             </p>
           </div>
@@ -59,15 +61,16 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
           >
             <div className="space-y-4">
               <p className="text-gray-300 italic">
-                The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span>, a grand architectural feat of the Roman Empire, was emblematic of the
-                &ldquo;bread and circuses&rdquo; strategy—an elaborate spectacle designed to pacify and
-                distract the masses through displays of violence and death. It served as a political
-                tool, offering brutal entertainment to maintain control over an oppressed population.
+                The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span>, a grand architectural feat of 
+                the Roman Empire, was emblematic of the &ldquo;bread and circuses&rdquo; strategy—an 
+                elaborate spectacle designed to pacify and distract the masses through displays of violence 
+                and death. It served as a political tool, offering brutal entertainment to maintain control 
+                over an oppressed population.
               </p>
               <p className="text-gray-300 italic">
-                In contrast, &ldquo;<span style={{ letterSpacing: '0.1em' }}>Cogaineum</span>&rdquo; represents a radically different philosophy: the
-                use of entertainment not as a means of manipulation, but as a form of universal
-                expression and benefit.
+                In contrast, &ldquo;<span style={{ letterSpacing: '0.1em' }}>Cogaineum</span>&rdquo; represents 
+                a radically different philosophy: the use of entertainment not as a means of manipulation, but 
+                as a form of universal expression and benefit.
               </p>
             </div>
           </div>
@@ -81,13 +84,14 @@ const Intro = forwardRef<HTMLDivElement, IntroProps>(({ scrollOpacity, blurAmoun
           >
             <div className="space-y-4">
               <p className="text-gray-300 italic">
-                The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span> glorified the end of life for public amusement.
+                The <span style={{ letterSpacing: '0.05em' }}>Colosseum</span> glorified the end of life 
+                for public amusement.
               </p>
               <p className="text-gray-300 italic">
-                <span style={{ letterSpacing: '0.15em' }}>Cogaineum</span> celebrates the absurdity and vibrancy of life itself. It thrives on
-                face-to-face interaction, transforming performance into a competitive, yet
-                collaborative, sport of art—one that invites participation, fosters creativity, and
-                reclaims entertainment as a shared human experience rather than a spectacle of
+                <span style={{ letterSpacing: '0.15em' }}>Cogaineum</span> celebrates the absurdity and 
+                vibrancy of life itself. It thrives on face-to-face interaction, transforming performance
+                into a competitive, yet collaborative, sport of art—one that invites participation, fosters 
+                creativity, andreclaims entertainment as a shared human experience rather than a spectacle of
                 suffering.
               </p>
             </div>

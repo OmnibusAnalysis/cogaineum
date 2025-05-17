@@ -33,14 +33,12 @@ describe('Donate', () => {
 
   it('renders the donate section with title', () => {
     render(<Donate />);
-
     expect(screen.getByText('Help me make art.')).toBeInTheDocument();
   });
 
   it('renders Venmo ID and copy button', () => {
     render(<Donate />);
-
-    expect(screen.getByText('@CoGaineum-Art')).toBeInTheDocument();
+    expect(screen.getByText('@Rob-Remlinger')).toBeInTheDocument();
     expect(screen.getByText('Copy')).toBeInTheDocument();
   });
 
@@ -51,7 +49,7 @@ describe('Donate', () => {
     const copyButton = screen.getByText('Copy');
     fireEvent.click(copyButton);
 
-    expect(mockClipboard.writeText).toHaveBeenCalledWith('@CoGaineum-Art');
+    expect(mockClipboard.writeText).toHaveBeenCalledWith('@Rob-Remlinger');
     await waitFor(() => {
       expect(copyButton).toHaveTextContent('Copied!');
     });
@@ -72,14 +70,13 @@ describe('Donate', () => {
     fireEvent.click(copyButton);
 
     await waitFor(() => {
-      expect(mockClipboard.writeText).toHaveBeenCalledWith('@CoGaineum-Art');
+      expect(mockClipboard.writeText).toHaveBeenCalledWith('@Rob-Remlinger');
       expect(console.error).toHaveBeenCalledWith('Failed to copy: ', error);
     });
   });
 
   it('renders support reasons', () => {
     render(<Donate />);
-
     expect(screen.getByText('Fund New Projects')).toBeInTheDocument();
     expect(screen.getByText('Enable Exhibitions')).toBeInTheDocument();
     expect(screen.getByText('Support Innovation')).toBeInTheDocument();
@@ -87,18 +84,16 @@ describe('Donate', () => {
 
   it('renders Venmo app link', () => {
     render(<Donate />);
-
     const venmoLink = screen.getByText('Open Venmo App');
     expect(venmoLink).toHaveAttribute('href', 'https://venmo.com/');
     expect(venmoLink).toHaveAttribute('target', '_blank');
     expect(venmoLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('renders QR code placeholder', () => {
+  it('renders QR code image', () => {
     render(<Donate />);
-
-    expect(screen.getByText('Venmo QR Code')).toBeInTheDocument();
-    expect(screen.getByText('Scan with your phone camera')).toBeInTheDocument();
+    const qrCodeImage = screen.getByAltText('Venmo QR Code');
+    expect(qrCodeImage).toBeInTheDocument();
     expect(screen.getByText('Scan to donate directly')).toBeInTheDocument();
   });
 });
