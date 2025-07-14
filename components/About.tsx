@@ -57,7 +57,7 @@ const DarkReaderCompatibleImage = ({
         alt={alt}
         width={width}
         height={height}
-        priority={priority}
+        priority={priority ?? false}
         style={{
           color: 'transparent',
           ...(isDarkReaderActive && {

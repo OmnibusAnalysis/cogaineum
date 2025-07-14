@@ -24,11 +24,10 @@ describe('Hero', () => {
     render(<Hero {...mockProps} isSpinning={true} />);
 
     // Check if spinning words are present
-    const spinningElements = screen.getAllByText('loss');
-    expect(spinningElements.length).toBe(3);
-
-    // Find the spinning container
-    const spinContainer = spinningElements[0].closest('div.single-spin-animation');
+    const spinningElements = screen.getAllByTestId('spinning-element');
+    expect(spinningElements).toHaveLength(3);
+    
+    const spinContainer = spinningElements[0]?.closest('div.single-spin-animation');
     expect(spinContainer).toBeInTheDocument();
   });
 

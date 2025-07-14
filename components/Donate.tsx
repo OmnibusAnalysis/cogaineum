@@ -3,7 +3,7 @@
 import { forwardRef, useState } from 'react';
 import Image from 'next/image';
 
-const Donate = forwardRef<HTMLDivElement>((props, ref) => {
+const Donate = forwardRef<HTMLDivElement>((_, ref) => {
   const [copySuccess, setCopySuccess] = useState(false);
 
   // Copy Venmo ID to clipboard

@@ -67,7 +67,7 @@ export async function sendEmail(formData: FormData): Promise<EmailResponse> {
       // Return validation errors
       return {
         success: false,
-        message: result.error.errors[0].message,
+        message: result.error.issues[0]?.message || 'Validation failed',
       };
     }
 

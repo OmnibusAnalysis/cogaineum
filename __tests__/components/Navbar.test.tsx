@@ -1,20 +1,22 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Navbar from '@/components/Navbar';
-import { createRef } from 'react';
 
 describe('Navbar', () => {
-  const aboutRef = createRef<HTMLDivElement>();
-  const contactRef = createRef<HTMLDivElement>();
-  const donateRef = createRef<HTMLDivElement>();
+  // Mock refs
+  const aboutRef = { current: null } as React.RefObject<HTMLDivElement>;
+  const contactRef = { current: null } as React.RefObject<HTMLDivElement>;
+  const donateRef = { current: null } as React.RefObject<HTMLDivElement>;
 
-  // Create and assign div elements to refs
+  // Mock DOM elements
   const aboutDiv = document.createElement('div');
   const contactDiv = document.createElement('div');
   const donateDiv = document.createElement('div');
 
-  aboutRef.current = aboutDiv;
-  contactRef.current = contactDiv;
-  donateRef.current = donateDiv;
+  // Assign refs
+  (aboutRef as any).current = aboutDiv;
+  (contactRef as any).current = contactDiv;
+  (donateRef as any).current = donateDiv;
 
   const mockProps = {
     opacity: 1,

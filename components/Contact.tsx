@@ -5,7 +5,7 @@ import type React from 'react';
 import { forwardRef, useState, useRef } from 'react';
 import { sendEmail, type EmailResponse } from '@/app/actions/email';
 
-const Contact = forwardRef<HTMLDivElement>((props, ref) => {
+const Contact = forwardRef<HTMLDivElement>((_, ref) => {
   // Contact form state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

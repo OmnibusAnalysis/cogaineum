@@ -25,7 +25,7 @@ export default function Analytics() {
       window.gtag('event', action, {
         event_category: category,
         event_label: label,
-        value: value,
+        ...(value !== undefined && { value }),
       });
     };
 
