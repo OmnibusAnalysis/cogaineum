@@ -10,6 +10,7 @@ import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Donate from '@/components/Donate';
 import Footer from '@/components/Footer';
+import Featured from '@/components/Featured';
 
 export default function Portfolio() {
   const [currentWord, setCurrentWord] = useState('loss');
@@ -31,6 +32,7 @@ export default function Portfolio() {
   const aboutSectionRef = useRef<HTMLDivElement>(null!);
   const contactSectionRef = useRef<HTMLDivElement>(null!);
   const donateSectionRef = useRef<HTMLDivElement>(null!);
+  const featuredSectionRef = useRef<HTMLDivElement>(null!);
 
   // Animation duration in milliseconds
   const animationDuration = 2500;
@@ -174,6 +176,7 @@ export default function Portfolio() {
           aboutRef={aboutSectionRef}
           contactRef={contactSectionRef}
           donateRef={donateSectionRef}
+          featuredRef={featuredSectionRef}
         />
 
         {/* Fixed sections with proper z-index layering */}
@@ -195,6 +198,9 @@ export default function Portfolio() {
           <div className="h-[450vh]" aria-hidden="true"></div>
 
           <div className="relative bg-black">
+            <div ref={featuredSectionRef}>
+              <Featured />
+            </div> {/* Add the Featured component here */}
             <About ref={aboutSectionRef} style={{ opacity: mounted ? aboutScrollOpacity : 1 }} />
             <Contact ref={contactSectionRef} />
             <Donate ref={donateSectionRef} />

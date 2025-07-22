@@ -41,6 +41,7 @@ export interface NavbarProps {
   aboutRef: React.RefObject<HTMLDivElement | null>;
   contactRef: React.RefObject<HTMLDivElement | null>;
   donateRef: React.RefObject<HTMLDivElement | null>;
+  featuredRef: React.RefObject<HTMLDivElement | null>;
 }
 
 // Hero props interface

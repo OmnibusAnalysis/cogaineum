@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { FC } from 'react';
 import type { NavbarProps } from '@/app/types';
 
-const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRef, donateRef }) => {
+ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRef, donateRef, featuredRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -38,11 +38,23 @@ const Navbar: FC<NavbarProps> = ({ opacity, scrollToSection, aboutRef, contactRe
               Home
             </button>
           </li>
+
+        <li>
+          <button
+            onClick={() => handleNavClick(featuredRef)}
+            className="text-white hover:text-purple-400 transition-colors duration-300"
+          >
+            Featured
+          </button>
+        </li>
+
+
           <li>
             <button
               onClick={() => scrollToSection(aboutRef)}
               className="text-white hover:text-purple-400 transition-colors duration-300"
             >
+
               About
             </button>
           </li>
