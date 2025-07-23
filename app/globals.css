@@ -1,46 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    background-color: hsl(var(--background));
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  * {
-    @apply border-border;
-  }
+@theme {
+  --color-background: 0 0% 0%;
+  --color-foreground: 0 0% 100%;
+  --color-border: 0 0% 20%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+:root {
+  --color-background: 0 0% 0%;
+  --color-foreground: 0 0% 100%;
+  --color-border: 0 0% 20%;
+}
 
-  /* Add fade-in animation for the About section */
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: hsl(var(--color-background));
+}
 
-  /* Add delayed fade-in animation for the Contact section */
-  .animate-fade-in-delayed {
-    animation: fadeIn 1s ease-out 0.3s forwards;
-    opacity: 0;
-  }
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* {
+  border-color: hsl(var(--color-border));
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Add fade-in animation for the About section */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Add delayed fade-in animation for the Contact section */
+.animate-fade-in-delayed {
+  animation: fadeIn 1s ease-out 0.3s forwards;
+  opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -202,7 +202,7 @@
 /* Custom focus styles for form elements */
 input:focus,
 textarea:focus {
-  @apply border-purple-500;
+  border-color: #a855f7;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -254,11 +254,12 @@ nav button:hover::after {
 
 @media (max-width: 640px) {
   nav ul {
-    @apply space-x-4;
+    gap: 1rem;
   }
 
   nav {
-    @apply py-3;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }
 
