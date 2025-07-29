@@ -1,39 +1,36 @@
 # Cogaineum
 
-A modern web application built with Next.js, TypeScript, and Tailwind CSS. This project features a responsive design with multiple sections including About, Contact, Donate, and more.
+A modern artist portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project features a responsive design with multiple sections including About, Portfolio, Contact, and more.
 
 ## Features
 
 - 🚀 Next.js 15 with App Router
 - ⚡ TypeScript for type safety
 - 🎨 Tailwind CSS for styling
-- 📧 Nodemailer integration for contact form
-- 🧪 Jest for testing
 - 📱 Responsive design
 - 🔍 ESLint for code quality
 - 🎯 Component-based architecture
+- 📊 Vercel Analytics integration
 
 ## Project Structure
 
 ```
 cogaineum/
 ├── app/                  # Next.js app directory
-│   ├── actions/         # Server actions
-│   ├── types/           # TypeScript types
+│   ├── styles/          # Modular CSS files
 │   ├── page.tsx         # Main page component
 │   └── layout.tsx       # Root layout
 ├── components/          # React components
-│   ├── About.tsx
-│   ├── Contact.tsx
-│   ├── Donate.tsx
-│   ├── Footer.tsx
-│   ├── Hero.tsx
-│   ├── Intro.tsx
-│   └── Navbar.tsx
-├── hooks/              # Custom React hooks
+│   ├── ModernAbout.tsx
+│   ├── ModernContact.tsx
+│   ├── ModernFooter.tsx
+│   ├── ModernHero.tsx
+│   ├── ModernNavbar.tsx
+│   ├── ModernPortfolio.tsx
+│   └── ErrorBoundary.tsx
 ├── lib/                # Utility functions
 ├── public/             # Static assets
-└── __tests__/          # Test files
+└── monopowerly_image_set/ # Image gallery page
 ```
 
 ## Getting Started
@@ -60,17 +57,7 @@ npm install
 yarn install
 ```
 
-3. Create a `.env.local` file in the root directory with the following variables:
-
-```env
-EMAIL_SERVER_HOST=your_smtp_host
-EMAIL_SERVER_PORT=your_smtp_port
-EMAIL_SERVER_USER=your_email
-EMAIL_SERVER_PASSWORD=your_password
-EMAIL_FROM=your_from_email
-```
-
-4. Start the development server:
+3. Start the development server:
 
 ```bash
 npm run dev
@@ -86,42 +73,31 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run build` - Build the application for production
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint
-- `npm test` - Run Jest tests
-- `npm run test:watch` - Run Jest tests in watch mode
-- `npm run test:coverage` - Generate test coverage report
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
 
-## Testing
+## CSS Architecture
 
-The project uses Jest and React Testing Library for testing. Run the following commands:
+The project uses a modular CSS architecture with files organized by responsibility:
 
-```bash
-# Run all tests
-npm test
+- `app/styles/base.css` - Design system variables and base styles
+- `app/styles/animations.css` - Animation keyframes and classes
+- `app/styles/components.css` - Reusable component styles
+- `app/styles/layouts.css` - Page layouts and responsive design
+- `app/styles/utilities.css` - Utility classes and gradients
 
-# Run tests in watch mode
-npm run test:watch
+## Technologies Used
 
-# Generate coverage report
-npm run test:coverage
-```
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type safety and better developer experience
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Intersection Observer** - Scroll-based animations
+- **Vercel Analytics** - Performance monitoring
 
 ## Deployment
 
-The application can be deployed on Vercel:
-
-1. Push your code to a GitHub repository
-2. Import the project on Vercel
-3. Configure environment variables
-4. Deploy!
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+The project is optimized for deployment on Vercel. Simply connect your repository to Vercel for automatic deployments.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.

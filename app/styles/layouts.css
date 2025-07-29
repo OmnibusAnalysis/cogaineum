@@ -1,0 +1,73 @@
+/* Hero Section */
+.hero-modern {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(ellipse at center, hsl(var(--color-accent) / 0.1) 0%, transparent 70%);
+}
+
+.hero-title {
+  font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-6xl));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, hsl(var(--color-foreground)), hsl(var(--color-accent)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  color: hsl(var(--color-foreground) / 0.7);
+  text-align: center;
+  margin-top: var(--space-4);
+  max-width: 600px;
+}
+
+/* Section Layouts */
+.section-modern {
+  padding: var(--space-24) var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  background: linear-gradient(135deg, hsl(var(--color-foreground)), hsl(var(--color-accent)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-description {
+  font-size: var(--font-size-lg);
+  color: hsl(var(--color-foreground) / 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .section-modern {
+    padding: var(--space-16) var(--space-4);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+} 
