@@ -1,8 +1,8 @@
 /* Gradient Utilities */
 .gradient-text {
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #659999;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -10,20 +10,20 @@
 }
 
 .gradient-bg {
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #659999;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .gradient-border {
   border: 2px solid;
-  border-image: linear-gradient(to right, #3B4371, #F3904F) 1;
+  border-image: linear-gradient(to right, #f4791f, #659999) 1;
 }
 
 .gradient-button {
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #659999;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   border: none;
   transition: all 0.3s ease;
@@ -31,7 +31,7 @@
 
 .gradient-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(243, 144, 79, 0.3);
+  box-shadow: 0 10px 20px rgba(244, 121, 31, 0.3);
 }
 
 /* Gradient Overlay for Hero Section */
@@ -46,7 +46,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 67, 113, 0.05) 0%, rgba(243, 144, 79, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(244, 121, 31, 0.05) 0%, rgba(101, 153, 153, 0.05) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -71,34 +71,34 @@
 
 @keyframes gradient-rotate {
   0% {
-    background: linear-gradient(0deg, #3B4371, #F3904F, #3B4371);
+    background: linear-gradient(0deg, #f4791f, #659999, #f4791f);
   }
   25% {
-    background: linear-gradient(90deg, #3B4371, #F3904F, #3B4371);
+    background: linear-gradient(90deg, #f4791f, #659999, #f4791f);
   }
   50% {
-    background: linear-gradient(180deg, #3B4371, #F3904F, #3B4371);
+    background: linear-gradient(180deg, #f4791f, #659999, #f4791f);
   }
   75% {
-    background: linear-gradient(270deg, #3B4371, #F3904F, #3B4371);
+    background: linear-gradient(270deg, #f4791f, #659999, #f4791f);
   }
   100% {
-    background: linear-gradient(360deg, #3B4371, #F3904F, #3B4371);
+    background: linear-gradient(360deg, #f4791f, #659999, #f4791f);
   }
 }
 
 @keyframes gradient-pulse {
   0%, 100% {
-    background: linear-gradient(45deg, #3B4371, #F3904F);
+    background: linear-gradient(45deg, #f4791f, #659999);
   }
   50% {
-    background: linear-gradient(45deg, #F3904F, #3B4371);
+    background: linear-gradient(45deg, #659999, #f4791f);
   }
 }
 
 /* Animated gradient text */
 .gradient-text-animated {
-  background: linear-gradient(-45deg, #3B4371, #F3904F, #3B4371, #F3904F);
+  background: linear-gradient(-45deg, #f4791f, #659999, #f4791f, #659999);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -109,14 +109,19 @@
 
 /* Animated gradient background */
 .gradient-bg-animated {
-  background: linear-gradient(-45deg, #3B4371, #F3904F, #3B4371, #F3904F);
+  background: linear-gradient(-45deg, #f4791f, #659999, #f4791f, #659999);
   background-size: 400% 400%;
   animation: gradient-shift 10s ease infinite;
 }
 
+/* Dark gradient background */
+.gradient-bg-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
 /* Animated gradient button */
 .gradient-button-animated {
-  background: linear-gradient(-45deg, #3B4371, #F3904F, #3B4371, #F3904F);
+  background: linear-gradient(-45deg, #f4791f, #659999, #f4791f, #659999);
   background-size: 400% 400%;
   color: white;
   border: none;
@@ -126,7 +131,7 @@
 
 .gradient-button-animated:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(243, 144, 79, 0.3);
+  box-shadow: 0 10px 20px rgba(244, 121, 31, 0.3);
   animation-duration: 3s;
 }
 
@@ -142,8 +147,8 @@
 
 /* Animated gradient card */
 .gradient-card-animated {
-  background: linear-gradient(-45deg, rgba(59, 67, 113, 0.1), rgba(243, 144, 79, 0.1), rgba(59, 67, 113, 0.1), rgba(243, 144, 79, 0.1));
+  background: linear-gradient(-45deg, rgba(244, 121, 31, 0.1), rgba(101, 153, 153, 0.1), rgba(244, 121, 31, 0.1), rgba(101, 153, 153, 0.1));
   background-size: 400% 400%;
   animation: gradient-shift 12s ease infinite;
-  border: 1px solid rgba(243, 144, 79, 0.2);
+  border: 1px solid rgba(244, 121, 31, 0.2);
 }

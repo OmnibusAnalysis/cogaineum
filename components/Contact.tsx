@@ -58,11 +58,11 @@ const ModernContact: FC = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-light gradient-text-animated mb-6">
-            Contact
+            Let&apos;s talk
           </h2>
           <div className="w-24 h-px gradient-bg mx-auto mb-8"></div>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Ready to collaborate or discuss a project? Let&apos;s connect and explore creative possibilities.
+          I have more ideas than I have the money for. I buy all supplies from local establishments.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const ModernContact: FC = () => {
           <div className="space-y-12">
             <div>
               <h3 className="text-2xl font-light gradient-text-animated mb-8">
-                Get in Touch
+                Contact
               </h3>
               
               <div className="space-y-6">
@@ -83,7 +83,7 @@ const ModernContact: FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1 gradient-text">Email</h4>
-                    <p className="text-slate-400">hello@cogaineum.art</p>
+                    <p className="text-slate-400">cogaineum@gmail.com</p>
                   </div>
                 </div>
 
@@ -96,7 +96,7 @@ const ModernContact: FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1 gradient-text">Location</h4>
-                    <p className="text-slate-400">Digital Realm</p>
+                    <p className="text-slate-400">Cincinatti, Ohio</p>
                   </div>
                 </div>
 

@@ -19,18 +19,17 @@ const ModernFooter: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-light text-white">
+            <h3 className="text-2xl font-light gradient-text-animated mb-8">
               Cogaineum
             </h3>
             <p className="text-slate-400 leading-relaxed max-w-sm">
-              Where artistic vision meets digital innovation. Creating works that challenge 
-              conventions and celebrate individual expression.
+              Challenge conventions. Celebrate individual expression.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-medium text-white">Quick Links</h4>
+            <h4 className="font-medium gradient-text-animated">Quick Links</h4>
             <ul className="space-y-2">
               {[
                 { label: 'About', href: '#about' },
@@ -52,7 +51,7 @@ const ModernFooter: FC = () => {
 
           {/* Philosophy */}
           <div className="space-y-4">
-            <h4 className="font-medium text-white">Philosophy</h4>
+            <h4 className="font-medium gradient-text-animated">Philosophy</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
               Anti-corporate. Pro-individual. Celebrating the absurdity and vibrancy of life 
               through face-to-face interaction and authentic artistic expression.

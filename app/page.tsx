@@ -5,12 +5,13 @@ import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 // New Modern Components
-import ModernNavbar from '@/components/ModernNavbar';
-import ModernHero from '@/components/ModernHero';
-import ModernAbout from '@/components/ModernAbout';
-import ModernPortfolio from '@/components/ModernPortfolio';
-import ModernContact from '@/components/ModernContact';
-import ModernFooter from '@/components/ModernFooter';
+import ModernNavbar from '../components/Navbar';
+import ModernHero from '../components/Hero';
+import ModernAbout from '../components/About';
+import ModernPortfolio from '../components/Portfolio';
+import Donate from '../components/Donate';
+import ModernContact from '@/components/Contact';
+import ModernFooter from '@/components/Footer';
 
 export default function ModernPortfolioPage() {
   const [mounted, setMounted] = useState(false);
@@ -20,12 +21,14 @@ export default function ModernPortfolioPage() {
   const heroRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
   const portfolioRef = useRef<HTMLElement>(null);
+  const donateRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
 
   // Intersection observer for active section tracking
   const { ref: heroInViewRef, inView: heroInView } = useInView({ threshold: 0.5 });
   const { ref: aboutInViewRef, inView: aboutInView } = useInView({ threshold: 0.5 });
   const { ref: portfolioInViewRef, inView: portfolioInView } = useInView({ threshold: 0.5 });
+  const { ref: donateInViewRef, inView: donateInView } = useInView({ threshold: 0.5 });
   const { ref: contactInViewRef, inView: contactInView } = useInView({ threshold: 0.5 });
 
   useEffect(() => {
@@ -37,8 +40,9 @@ export default function ModernPortfolioPage() {
     if (heroInView) setActiveSection('home');
     else if (aboutInView) setActiveSection('about');
     else if (portfolioInView) setActiveSection('portfolio');
+    else if (donateInView) setActiveSection('donate');
     else if (contactInView) setActiveSection('contact');
-  }, [heroInView, aboutInView, portfolioInView, contactInView]);
+  }, [heroInView, aboutInView, portfolioInView, donateInView, contactInView]);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId: string) => {
@@ -104,6 +108,17 @@ export default function ModernPortfolioPage() {
           <ModernPortfolio />
         </section>
 
+        {/* Donate Section */}
+        <section
+          id="donate"
+          ref={(el) => {
+            donateRef.current = el; 
+            donateInViewRef(el); 
+          }}
+          className="donate-modern"
+        >
+          <Donate />
+        </section>
         {/* Contact Section */}
         <section 
           id="contact"

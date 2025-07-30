@@ -16,6 +16,7 @@ const ModernNavbar: FC<ModernNavbarProps> = ({ activeSection, onNavigate }) => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'portfolio', label: 'Portfolio' },
+    { id: 'donate', label: 'Donate' },
     { id: 'contact', label: 'Contact' },
   ];
 

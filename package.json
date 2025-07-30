@@ -17,6 +17,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-intersection-observer": "^9.16.0",
+    "vercel": "^44.6.4",
     "zod": "^4.0.5"
   },
   "devDependencies": {
